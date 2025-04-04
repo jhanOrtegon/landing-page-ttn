@@ -1,18 +1,3 @@
-# Astro Sassify Template
-
-A modern, responsive Astro template with Tailwind CSS and Alpine.js integration. This template provides a solid foundation for building fast, SEO-friendly websites with a clean design system.
-
-## 🚀 Features
-
-- [Astro](https://astro.build/) - The web framework for content-driven websites
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
-- [Alpine.js](https://alpinejs.dev/) - Lightweight JavaScript framework for interactivity
-- Responsive design system with custom color palette
-- Dark mode support
-- Smooth page transitions
-- Performance optimized
-- SEO-friendly
-
 ## 📦 Project Structure
 
 ```text
@@ -69,6 +54,7 @@ The template uses the following font families:
 ### Animations
 
 Custom animations are included:
+
 - Fade In
 - Slide Up
 - Slide Down
@@ -79,6 +65,12 @@ Custom animations are included:
 2. Install dependencies with `npm install` or `pnpm install`
 3. Start the development server with `npm run dev` or `pnpm dev`
 4. Visit `http://localhost:4321` to see your site
+
+## 🏢 About TTN Company
+
+This project was developed and customized for **TTN Company**, a forward-thinking technology firm focused on delivering innovative SaaS solutions. The landing page built with this template serves as an engaging, modern interface to showcase TTN's mission, services, and values.
+
+The custom Hero section, animation system, and responsive design are tailored specifically to meet TTN's branding and performance needs.
 
 ## 📝 License
 
