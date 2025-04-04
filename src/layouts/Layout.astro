@@ -16,7 +16,7 @@ const {
 
 <!doctype html>
 <html
-  lang="en"
+  lang="es"
   x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }"
   x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
   :class="{ 'dark': darkMode }"
@@ -53,6 +53,8 @@ const {
           localStorage.setItem("darkMode", "false");
         }
       }
+
+      localStorage.setItem("darkMode", "false");
 
       // Handle page transitions
       document.addEventListener("astro:page-load", () => {
