@@ -1,0 +1,51 @@
+---
+interface Props {
+  title: string;
+  highlightText?: string;
+  description: string;
+  img?: string;
+}
+
+const { title, highlightText, description, img } = Astro.props;
+
+let titleStart = title;
+let titleEnd = "";
+
+if (highlightText) {
+  const titleParts = title.split(highlightText);
+  if (titleParts.length > 1) {
+    titleStart = titleParts[0];
+    titleEnd = titleParts[1];
+  }
+}
+---
+
+<section
+  class="relative w-full h-[90vh] bg-black bg-cover bg-center"
+  style={`background-image: url('${img}')`}
+>
+  <div class="absolute inset-0 bg-black bg-opacity-50 z-0"></div>
+
+  <div
+    class="relative z-10 flex items-center justify-center h-full px-4 text-center"
+  >
+    <div class="max-w-3xl text-white fade-in-on-scroll translate-y-10">
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+        {
+          highlightText ? (
+            <>
+              {titleStart}
+              <span class="text-accent-500"> {highlightText} </span>
+              {titleEnd}
+            </>
+          ) : (
+            title
+          )
+        }
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mt-2">
+        {description}
+      </p>
+    </div>
+  </div>
+</section>
