@@ -3,6 +3,79 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+
+const defaultImage =
+  "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png";
+
+const team = [
+  {
+    name: "Luis Escaf",
+    title: "CEO & Co-Founder",
+    img: "https://scontent.fctg1-4.fna.fbcdn.net/v/t39.30808-6/293381145_577367407168860_4623408629680690647_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEmPAKhAAHD4tj_Wyhxo1LkZaWjFsPNpLBlpaMWw82ksDeIdeX4SDilFqx0KpMAfTnDoWNQFyiv0dZABv4qi3uO&_nc_ohc=QbLdb1UudKIQ7kNvwEy9XhM&_nc_oc=Adkg0DRN0vTxqfkJzp4HV3vwytyV-Dq15jq4JkD_RLcqsdvoaDmuXcCiKK9MIAQC2gWSpu4ibe_C3QH-UhpFiMlx&_nc_zt=23&_nc_ht=scontent.fctg1-4.fna&_nc_gid=N7eXH1csqLyELrNty3nNGA&oh=00_AfFE6gknAEGNNym8Iu9scKUhnzy4QROEtwpc4keVcgvdSg&oe=67F9C66F",
+    description: "Visionario líder en salud digital con enfoque estratégico y pasión por la innovación tecnológica.",
+  },
+  {
+    name: "Jorge Martínez",
+    title: "Gerente general",
+    img: "https://www.ttncompany.com/static/media/jorge.eb01992e018394e61297.png",
+    description: "Estratega empresarial con experiencia en dirección organizacional y gestión de equipos de alto impacto.",
+  },
+  {
+    name: "Carlos Mora",
+    title: "Director de proyectos",
+    img: "https://www.ttncompany.com/static/media/carlos.14153193cea4d8862fde.png",
+    description: "Experto en gestión de proyectos tecnológicos, orientado a resultados y cumplimiento de metas clave.",
+  },
+  {
+    name: "Angel Mendoza",
+    title: "Lider de desarrollo",
+    img: defaultImage,
+    description: "Apasionado por el desarrollo de soluciones eficientes, guía técnica con enfoque colaborativo.",
+  },
+  {
+    name: "Duirist Coba",
+    title: "Lider de desarrollo",
+    img: defaultImage,
+    description: "Especialista en arquitectura de software, comprometido con la calidad y la escalabilidad.",
+  },
+  {
+    name: "Valentina Manotas",
+    title: "Lider de desarrollo",
+    img: defaultImage,
+    description: "Líder técnica con una visión clara en innovación, enfocada en la mejora continua y mentoría de equipos.",
+  },
+  {
+    name: "Jhan Ortegón",
+    title: "Desarrollador frontend",
+    img: "/jhan.jpeg",
+    description: "Creativo y detallista en la experiencia de usuario, con fuerte dominio en tecnologías frontend modernas.",
+  },
+  {
+    name: "Yesit Manjarrez",
+    title: "Desarrollador frontend",
+    img: defaultImage,
+    description: "Desarrollador dinámico con atención al detalle y enfoque en la usabilidad y el rendimiento.",
+  },
+  {
+    name: "Katerin Barrera",
+    title: "Desarrolladora frontend",
+    img: "https://www.ttncompany.com/static/media/katerin.e1693c51c3269a1536a1.png",
+    description: "Innovadora y resolutiva, especializada en interfaces intuitivas y componentes reutilizables.",
+  },
+  {
+    name: "Laura Navas",
+    title: "Analista de calidad",
+    img: "https://www.ttncompany.com/static/media/laura.4a3d401c188db5228657.png",
+    description: "Minuciosa en asegurar la calidad del producto, con enfoque en pruebas funcionales y experiencia del usuario.",
+  },
+  {
+    name: "Michel Vázquez",
+    title: "Analista de calidad",
+    img: defaultImage,
+    description: "Comprometido con la excelencia del software, experto en pruebas automatizadas y procesos QA.",
+  },
+];
+
 ---
 
 <Layout title="Sobre Nosotros - TTN Company">
@@ -173,7 +246,7 @@ import HeroSection from "../components/HeroSection.astro";
         </div>
 
         <div class="mb-24">
-          <div class="text-center mb-12">
+          <div class="text-center mb-24">
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
@@ -188,88 +261,49 @@ import HeroSection from "../components/HeroSection.astro";
             </p>
           </div>
 
-          <div class="grid md:grid-cols-3 gap-10">
-            {[1,2,3,4,5,6].map(el => (
-              <div class="text-center">
-              <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4">
-                <img
-                  alt="Jhan Ortegón"
-                  class="w-full h-full object-cover"
-                  src="/jhan.jpeg"
-                />
-              </div>
-              <h3
-                class="text-xl font-semibold text-accent-500 dark:text-white mb-1"
-              >
-                Jhan Ortegón
-              </h3>
-              <p class="text-primary-600 dark:text-primary-400 mb-2">
-                Front-end Developer
-                <!-- CEO & Co-Founder -->
-              </p>
-              <p class="text-accent-500 dark:text-gray-300 text-sm">
-                Con experiencia sólida en desarrollo frontend, lidera con una
-                visión clara y un enfoque innovador en cada proyecto.
-                <!-- With over 15 years of experience in the tech industry, Michael
-                leads our company with vision and passion. -->
-              </p>
-            </div>
-            ))}
+          <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 gap-y-24">
+            {
+              team.map((item) => (
+                <div class="relative w-full h-72 bg-gradient-to-br from-accent-600 to-primary-500 text-white rounded-xl p-6 pt-20 flex flex-col justify-between items-center shadow-xl transition-transform duration-500 hover:scale-[1.08]">
 
-            <!-- <div class="text-center">
-              <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4">
-                <img
-                  src="https://randomuser.me/api/portraits/women/44.jpg"
-                  alt="Sarah Johnson"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <h3
-                class="text-xl font-semibold text-accent-500 dark:text-white mb-1"
-              >
-                Sarah Johnson
-              </h3>
-              <p class="text-primary-600 dark:text-primary-400 mb-2">
-                CTO & Co-Founder
-              </p>
-              <p class="text-accent-500 dark:text-gray-300 text-sm">
-                Sarah's technical expertise and innovative thinking drive our
-                product development and technology strategy.
-              </p>
-            </div>
+                  <div class="absolute -top-14 w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-[0_0_10px_0px_rgba(0,0,0,0.1)] z-20">
+                    <div class="w-24 h-24 rounded-full overflow-hidden border-white">
+                      <img
+                        alt={item.name}
+                        class="w-full h-full object-cover"
+                        src={item.img}
+                      />
+                    </div>
+                  </div>
 
-            <div class="text-center">
-              <div class="rounded-full overflow-hidden w-32 h-32 mx-auto mb-4">
-                <img
-                  src="https://randomuser.me/api/portraits/men/67.jpg"
-                  alt="David Rodriguez"
-                  class="w-full h-full object-cover"
-                />
-              </div>
-              <h3
-                class="text-xl font-semibold text-accent-500 dark:text-white mb-1"
-              >
-                David Rodriguez
-              </h3>
-              <p class="text-primary-600 dark:text-primary-400 mb-2">COO</p>
-              <p class="text-accent-500 dark:text-gray-300 text-sm">
-                David ensures our operations run smoothly and efficiently,
-                enabling us to deliver exceptional value to our customers.
-              </p>
-            </div> -->
+                  <!-- Contenido dentro de la tarjeta -->
+                  <h3 class="text-xl font-bold tracking-wide text-center uppercase z-10">{item.name}</h3>
+
+                  <p class="text-sm text-center leading-relaxed font-light italic opacity-90 mt-2 z-10 px-2">
+                    {item.description}
+                  </p>
+
+                  <p class="text-xs mt-2 tracking-widest font-semibold uppercase z-10">{item.title}</p>
+                </div>
+
+              ))
+            }
+
           </div>
         </div>
 
-        <div class="text-center">
+        <div class="text-center flex flex-col items-center gap-6 mb-10">
           <h3
-            class="text-2xl font-semibold text-accent-500 dark:text-white mb-4"
+            class="text-3xl font-semibold text-accent-500 dark:text-white"
           >
             Únete a nuestro equipo
           </h3>
-          <p class="text-accent-500 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-           Siempre buscamos personas con talento que compartan nuestra pasión por la innovación y la excelencia. Consulta nuestras vacantes actuales y únete a nuestra misión.
-          </p>
           <a href="/career" class="btn-primary">Ver vacantes abiertas</a>
+          <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            Siempre buscamos personas con talento que compartan nuestra pasión
+            por la innovación y la excelencia. Consulta nuestras vacantes
+            actuales y únete a nuestra misión.
+          </p>
         </div>
       </div>
     </section>
