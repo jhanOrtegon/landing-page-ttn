@@ -4,10 +4,22 @@ interface Props {
   highlightText?: string;
   description: string;
   img?: string;
+  tags?: string[];
+  logo?: string;
+  illustration?: string; // Para mostrar imagen al lado del texto si no hay fondo
 }
 
-const { title, highlightText, description, img } = Astro.props;
+const {
+  title,
+  highlightText,
+  description,
+  img,
+  tags = [],
+  illustration,
+  logo = "",
+} = Astro.props;
 
+// Separar título con palabra destacada
 let titleStart = title;
 let titleEnd = "";
 
@@ -18,38 +30,80 @@ if (highlightText) {
     titleEnd = titleParts[1];
   }
 }
+
+// Fondo dinámico
+
+const backgroundStyle = img
+  ? `url('${img}')`
+  : `linear-gradient(to bottom, #dbeafe 0%, 45%, #ffffff 100%)`;
 ---
 
-<section
-  class="relative w-full bg-black bg-cover bg-center min-h-[calc(100vh-90px)]"
-  style={{
-    backgroundImage: `url('${img}')`,
-  }}
->
-  <!-- Capa con blur aplicado -->
-  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm z-0"></div>
-
-  <!-- Contenido principal -->
-  <div
-    class="relative z-10 flex items-center justify-center h-full px-4 text-center min-h-[calc(100vh-150px)]"
-  >
-    <div class="max-w-4xl text-white fade-in-on-scroll translate-y-10">
-      <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
-        {
-          highlightText ? (
-            <>
-              {titleStart}
-              <span class="text-accent-500"> {highlightText} </span>
-              {titleEnd}
-            </>
-          ) : (
-            title
-          )
-        }
-      </h1>
-      <p class="text-lg md:text-xl text-gray-200 mt-2">
-        {description}
-      </p>
-    </div>
-  </div>
-</section>
+{
+  img ? (
+    // ✅ Hero con imagen de fondo
+    <section
+      class="relative w-full bg-cover bg-center min-h-[calc(100vh-90px)]"
+      style={{ backgroundImage: backgroundStyle }}
+    >
+      <div class="absolute inset-0 bg-black/60 backdrop-blur-sm z-0" />
+      <div class="relative z-10 flex items-center justify-center h-full px-4 text-center min-h-[calc(100vh-150px)]">
+        <div class="max-w-4xl text-white fade-in-on-scroll translate-y-10">
+          <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">
+            {highlightText ? (
+              <>
+                {titleStart}
+                <span class="text-accent-500"> {highlightText} </span>
+                {titleEnd}
+              </>
+            ) : (
+              title
+            )}
+          </h1>
+          <p class="text-lg md:text-xl text-gray-200 mt-2">{description}</p>
+        </div>
+      </div>
+    </section>
+  ) : (
+    // ✅ Hero sin fondo, con layout de contenido + imagen (como el ejemplo que mostraste)
+    <section
+      class="min-h-[calc(100vh-90px)] flex items-center px-6 md:px-12"
+      style="background: linear-gradient(
+    to bottom left,
+    #E1F5FF 0%,
+    #E1F5FF 40%,
+    #f7fafe 60%,
+    #ffffff 100%
+  );"
+    >
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div>
+          <img src={logo} alt="Biowel logo" class="w-[22rem] mb-8" />
+          <h1 class="text-4xl md:text-5xl font-bold text-primary-500 mb-8 leading-tight">
+            {highlightText ? (
+              <>
+                {titleStart}
+                <span class="text-accent-500"> {highlightText} </span>
+                {titleEnd}
+              </>
+            ) : (
+              title
+            )}
+          </h1>
+          <p class="text-lg text-gray-700 mb-6">{description}</p>
+          <div class="flex flex-wrap gap-3">
+            {tags.map((tag) => (
+              <span class="bg-accent-500 text-white text-sm font-medium px-4 py-1 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        {illustration && (
+          <div class="hidden md:block w-full">
+            <img src={illustration} alt="Illustration" class="w-full" />
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}

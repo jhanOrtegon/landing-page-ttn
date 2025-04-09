@@ -4,12 +4,10 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
 
-const defaultImage =
-  "https://www.ttncompany.com/static/media/vacuProduct.5983feca67eeeadd7c025726a13e9ea3.svg";
-
-const servicios = [
+export const services = [
   {
-    nombre: "Telemedicina",
+    slug: "telemedicina",
+    name: "Telemedicina",
     descripcion:
       "Plataforma que facilita la conexión entre pacientes y profesionales de la salud para consultas médicas en tiempo real desde cualquier ubicación.",
     imagen:
@@ -17,7 +15,8 @@ const servicios = [
     alt: "Consulta médica en línea",
   },
   {
-    nombre: "Phase",
+    slug: "phase",
+    name: "Phase",
     descripcion:
       "Software integral diseñado para gestionar y mejorar los procesos de calidad dentro de una organización, asegurando el cumplimiento de normativas como ISO 9001.",
     imagen:
@@ -25,7 +24,8 @@ const servicios = [
     alt: "Software de gestión de calidad",
   },
   {
-    nombre: "Sourset",
+    slug: "sourset",
+    name: "Sourset",
     descripcion:
       "Solución completa para el seguimiento y gestión de los activos fijos de la empresa, optimizando la administración financiera y operativa de los recursos físicos.",
     imagen:
@@ -33,7 +33,8 @@ const servicios = [
     alt: "Administración de activos fijos",
   },
   {
-    nombre: "Vpocket",
+    slug: "vpocket",
+    name: "Vpocket",
     descripcion:
       "Aplicación diseñada para gestionar y monitorear el uso de tarjetas de crédito corporativas, facilitando el control financiero y la transparencia en los gastos empresariales.",
     imagen:
@@ -41,7 +42,8 @@ const servicios = [
     alt: "Control de tarjetas de crédito",
   },
   {
-    nombre: "Vacu+",
+    slug: "vacu+",
+    name: "Vacu+",
     descripcion:
       "Sistema avanzado que automatiza las interacciones con los clientes mediante chatbots y asistentes virtuales, mejorando la eficiencia del servicio al cliente.",
     imagen:
@@ -49,7 +51,8 @@ const servicios = [
     alt: "Automatización de atención al cliente",
   },
   {
-    nombre: "Biowel Asistencial",
+    slug: "biowel-asistencial",
+    name: "Biowel Asistencial",
     descripcion:
       "Plataforma especializada en la gestión de servicios asistenciales, facilitando la coordinación de citas, órdenes médicas y seguimiento de pacientes.",
     imagen:
@@ -57,7 +60,8 @@ const servicios = [
     alt: "Software de asistencia y ordenamientos",
   },
   {
-    nombre: "Biowel",
+    slug: "biowel",
+    name: "Biowel",
     descripcion:
       "Solución integral para la gestión administrativa y financiera de las organizaciones, proporcionando una visión completa y en tiempo real de la salud financiera de la empresa.",
     imagen:
@@ -202,8 +206,11 @@ const servicios = [
         </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
           {
-            servicios.map((servicio) => (
-              <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition duration-500 cursor-pointer">
+            services.map((servicio) => (
+              <a
+                class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition duration-500 cursor-pointer"
+                href={`/products/${servicio.slug}`}
+              >
                 <img
                   src={servicio.imagen}
                   alt={servicio.alt}
@@ -211,13 +218,13 @@ const servicios = [
                 />
                 <div class="p-6 text-left">
                   <h3 class="text-xl font-semibold text-accent-500 dark:text-white mb-2">
-                    {servicio.nombre}
+                    {servicio.name}
                   </h3>
                   <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
                     {servicio.descripcion}
                   </p>
                 </div>
-              </div>
+              </a>
             ))
           }
         </div>
