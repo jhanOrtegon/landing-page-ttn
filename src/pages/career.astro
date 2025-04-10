@@ -3,316 +3,94 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+import { seed } from "../../seed/seed";
 ---
 
-<Layout title="Trabaja con nosotros - TTN Company">
+<Layout
+  title={seed.career.layout.title}
+  description={seed.career.layout.description}
+>
   <Header />
   <main>
     <HeroSection
-      img={"/bannerCareers.png"}
-      title="Trabaja con nosotros"
-      description="Queremos que hagas parte de nuestro equipo"
+      img={seed.career.heroSection.img}
+      title={seed.career.heroSection.title}
+      description={seed.career.heroSection.description}
     />
 
     <section class="py-16 bg-white dark:bg-gray-800">
       <div class="container-custom">
-        <div class="max-w-4xl mx-auto">
+        <div class="max-w-5xl mx-auto">
           <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-8">
-            ¿Por qué trabajar con nosotros?
+            {seed.career.whatWeDo.title}
           </h2>
 
           <div class="grid md:grid-cols-2 gap-8 mb-16">
-            <div class="card p-6 border border-gray-200 dark:border-gray-700">
-              <div class="flex items-center mb-4">
-                <div
-                  class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4"
-                >
-                  <svg
-                    class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
+            {
+              seed.career.whatWeDo.data.map((item) => (
+                <div class="card p-6 border border-gray-200 dark:border-gray-700">
+                  <div class="flex items-center mb-4">
+                    <div class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4">
+                      <svg
+                        class="w-6 h-6 text-primary-600 dark:text-primary-400"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                        />
+                      </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-accent-500 dark:text-white">
+                      {item.title}
+                    </h3>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300">
+                    {item.description}
+                  </p>
                 </div>
-                <h3
-                  class="text-xl font-semibold text-accent-500 dark:text-white"
-                >
-                  Entorno de trabajo flexible
-                </h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300">
-                Trabaje desde cualquier lugar del mundo. Creemos en los
-                resultados, no en las horas de oficina.
-              </p>
-            </div>
-
-            <div class="card p-6 border border-gray-200 dark:border-gray-700">
-              <div class="flex items-center mb-4">
-                <div
-                  class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4"
-                >
-                  <svg
-                    class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                  </svg>
-                </div>
-                <h3
-                  class="text-xl font-semibold text-accent-500 dark:text-white"
-                >
-                  Tecnología de vanguardia
-                </h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300">
-                Trabaje con las últimas tecnologías y herramientas para resolver
-                problemas desafiantes.
-              </p>
-            </div>
-
-            <div class="card p-6 border border-gray-200 dark:border-gray-700">
-              <div class="flex items-center mb-4">
-                <div
-                  class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4"
-                >
-                  <svg
-                    class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3
-                  class="text-xl font-semibold text-accent-500 dark:text-white"
-                >
-                  Equipo diverso e inclusivo
-                </h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300">
-                Únase a un equipo global con diversos antecedentes, perspectivas
-                y experiencias.
-              </p>
-            </div>
-
-            <div class="card p-6 border border-gray-200 dark:border-gray-700">
-              <div class="flex items-center mb-4">
-                <div
-                  class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4"
-                >
-                  <svg
-                    class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                    ></path>
-                  </svg>
-                </div>
-                <h3
-                  class="text-xl font-semibold text-accent-500 dark:text-white"
-                >
-                  Beneficios competitivos
-                </h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300">
-                Disfrute de un salario competitivo, beneficios de salud,
-                opciones sobre acciones y oportunidades de desarrollo
-                profesional.
-              </p>
-            </div>
+              ))
+            }
           </div>
 
           <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-8">
-            Vacantes Abiertas
+            {seed.career.openPositions.title}
           </h2>
 
           <div class="space-y-6 mb-16">
-            <!-- Job Listing 1 -->
-            <div
-              class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in"
-            >
-              <div
-                class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
-              >
-                <h3
-                  class="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0"
-                >
-                  Desarrollador frontend senior
-                </h3>
-                <span
-                  class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-                >
-                  Remoto
-                </span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                Estamos buscando un desarrollador frontend experimentado que nos
-                ayude a crear interfaces de usuario hermosas, receptivas y
-                accesibles para nuestra plataforma SaaS.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  React
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  TypeScript
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  Tailwind CSS
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  5+ años de experiencia
-                </span>
-              </div>
-              <a href="#" class="btn-secondary">Aplicar Ahora</a>
-            </div>
-
-            <!-- Job Listing 2 -->
-            <div
-              class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in"
-            >
-              <div
-                class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
-              >
-                <h3
-                  class="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0"
-                >
-                  Ingeniero backend
-                </h3>
-                <span
-                  class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-                >
-                  Remoto
-                </span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                Únase a nuestro equipo de backend para crear API y servicios
-                escalables, confiables y seguros que impulsen nuestra plataforma
-                SaaS.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  Node.js
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  PostgreSQL
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  AWS
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  3+ Years Experience
-                </span>
-              </div>
-              <a href="#" class="btn-secondary">Aplicar Ahora</a>
-            </div>
-
-            <!-- Job Listing 3 -->
-            <div
-              class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in"
-            >
-              <div
-                class="flex flex-col md:flex-row md:items-center md:justify-between mb-4"
-              >
-                <h3
-                  class="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0"
-                >
-                  Diseñador de productos
-                </h3>
-                <span
-                  class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
-                >
-                  Remoto
-                </span>
-              </div>
-              <p class="text-gray-600 dark:text-gray-300 mb-4">
-                Buscamos un diseñador de productos talentoso para crear
-                experiencias de usuario intuitivas y agradables para nuestros
-                clientes.
-              </p>
-              <div class="flex flex-wrap gap-2 mb-6">
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  UI/UX
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  Figma
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  User Research
-                </span>
-                <span
-                  class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
-                >
-                  4+ Years Experience
-                </span>
-              </div>
-              <a href="#" class="btn-secondary">Aplicar Ahora</a>
-            </div>
+            {
+              seed.career.openPositions.data.map((item) => (
+                <div class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in">
+                  <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                    <h3 class="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0">
+                      {item.title}
+                    </h3>
+                    <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
+                      {item.status}
+                    </span>
+                  </div>
+                  <p class="text-gray-600 dark:text-gray-300 mb-4">
+                    {item.description}
+                  </p>
+                  <div class="flex flex-wrap gap-2 mb-6">
+                    {item.techs.map((tech) => (
+                      <span class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <a href="#" class="btn-secondary">
+                    Aplicar Ahora
+                  </a>
+                </div>
+              ))
+            }
           </div>
-
-          <!-- <div class="text-center">
-            <h3
-              class="text-xl font-semibold text-accent-500 dark:text-white mb-4"
-            >
-              Don't see a position that fits your skills?
-            </h3>
-            <p class="text-accent-500 dark:text-gray-300 mb-6">
-              We're always looking for talented individuals to join our team.
-              Send us your resume and we'll keep it on file for future
-              opportunities.
-            </p>
-            <a href="/contact" class="btn-primary">Contact Us</a>
-          </div> -->
         </div>
       </div>
     </section>

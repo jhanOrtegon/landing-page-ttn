@@ -42,6 +42,7 @@ const {
     <div id="page-wrapper" class="page-transition-wrapper">
       <slot />
     </div>
+
     <script>
       // Check for user preference
       if (localStorage.getItem("darkMode") === null) {
@@ -72,6 +73,82 @@ const {
           pageWrapper.classList.remove("page-loaded");
         }
       });
+    </script>
+
+    <script is:inline>
+      function setupFaqToggles() {
+        const buttons = document.querySelectorAll(".faq-toggle");
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const index = btn.dataset.index;
+            const content = document.getElementById(`faq-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            const isOpen =
+              content.style.maxHeight !== "0px" &&
+              content.style.maxHeight !== "";
+
+            const allContainers = Array.from(
+              document.querySelectorAll(".faq-content-height")
+            );
+            const clickedIndex = parseInt(index);
+
+            const leftIndex = clickedIndex > 0 ? clickedIndex - 1 : null;
+            if (leftIndex !== null && allContainers[leftIndex]) {
+              allContainers[leftIndex].style.height = "fit-content";
+            }
+
+            const rightIndex =
+              clickedIndex < allContainers.length - 1 ? clickedIndex + 1 : null;
+            if (rightIndex !== null && allContainers[rightIndex]) {
+              allContainers[rightIndex].style.height = "fit-content";
+            }
+
+            document.querySelectorAll(".faq-content").forEach((el) => {
+              el.style.maxHeight = "0px";
+            });
+
+            document.querySelectorAll(".faq-toggle").forEach((toggleBtn) => {
+              toggleBtn.setAttribute("aria-expanded", "false");
+            });
+
+            document.querySelectorAll("svg[id^='icon-']").forEach((svg) => {
+              svg.classList.remove("rotate-180");
+            });
+
+            if (!isOpen) {
+              content.style.maxHeight = content.scrollHeight + "px";
+              const container = btn.closest(".faq-content-height");
+              if (container) container.style.height = "fit-content";
+              icon.classList.add("rotate-180");
+              btn.setAttribute("aria-expanded", "true");
+            }
+
+            setTimeout(() => {
+              const anyOpen = Array.from(
+                document.querySelectorAll(".faq-content")
+              ).some(
+                (el) =>
+                  el.style.maxHeight !== "0px" && el.style.maxHeight !== ""
+              );
+
+              if (!anyOpen) {
+                document
+                  .querySelectorAll(".faq-content-height")
+                  .forEach((el) => {
+                    el.style.removeProperty("height");
+                  });
+              }
+            }, 100);
+          });
+        });
+      }
+
+      // Ejecutar al cargar
+      document.addEventListener("DOMContentLoaded", setupFaqToggles);
+
+      // Ejecutar en navegación SPA
+      document.addEventListener("astro:after-swap", setupFaqToggles);
     </script>
 
     <script src="../scripts/transitions.js"></script>

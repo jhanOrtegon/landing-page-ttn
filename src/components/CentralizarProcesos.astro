@@ -1,5 +1,5 @@
 ---
-
+import { seed } from "../../seed/seed";
 ---
 
 <section
@@ -25,15 +25,12 @@
     <!-- Cuadro de procesos -->
     <div class="mt-12 flex flex-wrap justify-center gap-8">
       {
-        [
-          { label: "Contabilidad", icon: "💰" },
-          { label: "Asistencia", icon: "💊" },
-          { label: "Calidad", icon: "🛡️" },
-          { label: "Registro", icon: "📄" },
-        ].map(({ label, icon }) => (
+        seed.home.proccess.data.map((process) => (
           <div class="w-52 h-48 bg-white/80 backdrop-blur-md shadow-md rounded-xl flex flex-col items-center justify-center hover:scale-105 transition-all duration-200">
-            <div class="text-3xl">{icon}</div>
-            <span class="mt-4 text-[#009dff] font-semibold">{label}</span>
+            <div class="text-3xl">{process.icon}</div>
+            <span class="mt-4 text-[#009dff] font-semibold">
+              {process.title}
+            </span>
           </div>
         ))
       }

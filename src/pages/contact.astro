@@ -1,19 +1,23 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Header from '../components/Header.astro';
-import ContactForm from '../components/Contact.astro';
-import Footer from '../components/Footer.astro';
-import HeroSection from '../components/HeroSection.astro';
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import ContactForm from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import HeroSection from "../components/HeroSection.astro";
 ---
 
-<Layout title="Contact Us - Sassify">
+<Layout
+  title="Contacta con nosotros - TTN Company"
+  description="Nuestro equipo está aquí para ayudarte en cada paso del proceso."
+>
   <Header />
   <main>
-    <HeroSection 
-      title="Contact Us" 
-      description="We're here to help with any questions you might have about our services."
+    <HeroSection
+      tags={["contact"]}
+      title="Contacta con nosotros"
+      description="Estamos aquí para ayudarle con cualquier pregunta que puedas tener sobre nuestros servicios."
     />
     <ContactForm />
   </main>
   <Footer />
-</Layout> 
+</Layout>

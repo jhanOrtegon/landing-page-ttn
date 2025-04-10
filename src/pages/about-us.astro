@@ -3,88 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
-
-const defaultImage =
-  "https://cdn.pixabay.com/photo/2023/02/18/11/00/icon-7797704_640.png";
-
-const team = [
-  {
-    name: "Luis Escaf",
-    title: "CEO & Co-Founder",
-    img: "https://scontent.fctg1-4.fna.fbcdn.net/v/t39.30808-6/293381145_577367407168860_4623408629680690647_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeEmPAKhAAHD4tj_Wyhxo1LkZaWjFsPNpLBlpaMWw82ksDeIdeX4SDilFqx0KpMAfTnDoWNQFyiv0dZABv4qi3uO&_nc_ohc=QbLdb1UudKIQ7kNvwEy9XhM&_nc_oc=Adkg0DRN0vTxqfkJzp4HV3vwytyV-Dq15jq4JkD_RLcqsdvoaDmuXcCiKK9MIAQC2gWSpu4ibe_C3QH-UhpFiMlx&_nc_zt=23&_nc_ht=scontent.fctg1-4.fna&_nc_gid=N7eXH1csqLyELrNty3nNGA&oh=00_AfFE6gknAEGNNym8Iu9scKUhnzy4QROEtwpc4keVcgvdSg&oe=67F9C66F",
-    description: "Visionario líder en salud digital con enfoque estratégico y pasión por la innovación tecnológica.",
-  },
-  {
-    name: "Jorge Martínez",
-    title: "Gerente general",
-    img: "https://www.ttncompany.com/static/media/jorge.eb01992e018394e61297.png",
-    description: "Estratega empresarial con experiencia en dirección organizacional y gestión de equipos de alto impacto.",
-  },
-  {
-    name: "Carlos Mora",
-    title: "Director de proyectos",
-    img: "https://www.ttncompany.com/static/media/carlos.14153193cea4d8862fde.png",
-    description: "Experto en gestión de proyectos tecnológicos, orientado a resultados y cumplimiento de metas clave.",
-  },
-  {
-    name: "Angel Mendoza",
-    title: "Lider de desarrollo",
-    img: defaultImage,
-    description: "Apasionado por el desarrollo de soluciones eficientes, guía técnica con enfoque colaborativo.",
-  },
-  {
-    name: "Duirist Coba",
-    title: "Lider de desarrollo",
-    img: defaultImage,
-    description: "Especialista en arquitectura de software, comprometido con la calidad y la escalabilidad.",
-  },
-  {
-    name: "Valentina Manotas",
-    title: "Lider de desarrollo",
-    img: defaultImage,
-    description: "Líder técnica con una visión clara en innovación, enfocada en la mejora continua y mentoría de equipos.",
-  },
-  {
-    name: "Jhan Ortegón",
-    title: "Desarrollador frontend",
-    img: "/jhan.jpeg",
-    description: "Creativo y detallista en la experiencia de usuario, con fuerte dominio en tecnologías frontend modernas.",
-  },
-  {
-    name: "Yesit Manjarrez",
-    title: "Desarrollador frontend",
-    img: defaultImage,
-    description: "Desarrollador dinámico con atención al detalle y enfoque en la usabilidad y el rendimiento.",
-  },
-  {
-    name: "Katerin Barrera",
-    title: "Desarrolladora frontend",
-    img: "https://www.ttncompany.com/static/media/katerin.e1693c51c3269a1536a1.png",
-    description: "Innovadora y resolutiva, especializada en interfaces intuitivas y componentes reutilizables.",
-  },
-  {
-    name: "Laura Navas",
-    title: "Analista de calidad",
-    img: "https://www.ttncompany.com/static/media/laura.4a3d401c188db5228657.png",
-    description: "Minuciosa en asegurar la calidad del producto, con enfoque en pruebas funcionales y experiencia del usuario.",
-  },
-  {
-    name: "Michel Vázquez",
-    title: "Analista de calidad",
-    img: defaultImage,
-    description: "Comprometido con la excelencia del software, experto en pruebas automatizadas y procesos QA.",
-  },
-];
+import { seed } from "../../seed/seed";
 
 ---
 
-<Layout title="Sobre Nosotros - TTN Company">
+<Layout title="Sobre Nosotros - TTN Company" >
   <Header />
   <main>
     <HeroSection
-      title="Somos TTN Company"
-      img={"/bannerAbout.png"}
-      description="Nuestra misión es empoderar a las empresas con soluciones SaaS innovadoras."
+      img={seed.aboutUs.heroSection.img}
+      title={seed.aboutUs.heroSection.title}
+      description={seed.aboutUs.heroSection.description}
     />
 
     <section
@@ -96,32 +25,22 @@ const team = [
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              Nuestra historia
+              {seed.aboutUs.history.badge}
             </span>
             <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-6">
-              Referente en innovación clínica
+              {seed.aboutUs.history.title}
             </h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4 text-justify">
-              Fundada en 2020 con el respaldo de la Clínica Oftalmológica del
-              Caribe, TTN Company nació con una visión clara: desarrollar
-              soluciones tecnológicas innovadoras para responder a las
-              necesidades reales del sector salud. Lo que comenzó como una
-              startup impulsada por una idea ambiciosa, hoy se proyecta como un
-              actor clave en la transformación digital de los servicios
-              clínicos.
+              {seed.aboutUs.history.initialDescription}
               <br />
               <br />
-              Nuestro camino ha estado lleno de aprendizajes, pero nuestro compromiso
-              con la innovación, la calidad y el impacto en la atención médica se
-              ha mantenido firme. Nos enorgullece ver cómo nuestras soluciones han
-              contribuido a optimizar procesos, facilitar el trabajo de los profesionales
-              de la salud y mejorar la experiencia de los pacientes.
+              {seed.aboutUs.history.endDescription}
             </p>
           </div>
           <div class="rounded-lg overflow-hidden shadow-xl">
             <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
-              alt="Sassify Team"
+              src={seed.aboutUs.history.image}
+              alt={seed.aboutUs.history.imageAlt}
               class="rounded-lg w-full h-auto hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[0.98]"
             />
           </div>
@@ -132,116 +51,51 @@ const team = [
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              Nuestros valores
+              {seed.aboutUs.values.badge}
             </span>
             <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-4">
-              Lo que representamos
+              {seed.aboutUs.values.title}
             </h2>
             <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Nuestros valores guían todo lo que hacemos, desde cómo construimos
-              nuestros productos hasta cómo interactuamos con nuestros clientes
-              y entre nosotros.
+              {seed.aboutUs.values.description}
             </p>
           </div>
 
           <div class="grid md:grid-cols-3 gap-8">
-            <div
-              class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02]"
-            >
-              <div
-                class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4"
-              >
-                <svg
-                  class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
+            {
+              seed.aboutUs.values.data.map((value) => (
+                <div
+                  class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02]"
                 >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                  ></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-semibold text-accent-500 dark:text-white mb-2"
-              >
-                Confianza y transparencia
-              </h3>
-              <p class="text-gray-600">
-                Creemos en generar confianza a través de la transparencia. Somos
-                abiertos con nuestros procesos y políticas, y siempre nos
-                esforzamos por hacer lo mejor para nuestros clientes.
-              </p>
-            </div>
-
-            <div
-              class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02]"
-            >
-              <div
-                class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4"
-              >
-                <svg
-                  class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-semibold text-accent-500 dark:text-white mb-2"
-              >
-                Innovación y Excelencia
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300">
-                Constantemente superamos los límites de lo posible, buscando
-                nuevas formas de resolver problemas complejos y ofrecer un valor
-                excepcional a nuestros clientes.
-              </p>
-            </div>
-
-            <div
-              class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02]"
-            >
-              <div
-                class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4"
-              >
-                <svg
-                  class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                  ></path>
-                </svg>
-              </div>
-              <h3
-                class="text-xl font-semibold text-accent-500 dark:text-white mb-2"
-              >
-                Éxito del cliente
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300">
-                El éxito de nuestros clientes es nuestro éxito. Nos
-                comprometemos a brindarles el apoyo, los recursos y las
-                herramientas que necesitan para alcanzar sus objetivos.
-              </p>
-            </div>
+                  <div
+                    class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4"
+                  >
+                    <svg
+                      class="w-6 h-6 text-primary-600 dark:text-primary-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <h3
+                    class="text-xl font-semibold text-accent-500 dark:text-white mb-2"
+                  >
+                    {value.title}
+                  </h3>
+                  <p class="text-gray-600">
+                    {value.description}
+                  </p>
+                </div>
+              ))   
+            }
           </div>
         </div>
 
@@ -250,20 +104,19 @@ const team = [
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              Equipo de liderazgo
+              {seed.aboutUs.liderTeam.badge}
             </span>
             <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-4">
-              Conozca a nuestros líderes
+              {seed.aboutUs.liderTeam.title}
             </h2>
             <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Nuestro diverso equipo de líderes aporta una amplia experiencia y
-              una pasión compartida por la innovación.
+              {seed.aboutUs.liderTeam.description}
             </p>
           </div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 gap-y-24">
             {
-              team.map((item) => (
+              seed.aboutUs.liderTeam.data.map((item) => (
                 <div class="relative w-full h-72 bg-gradient-to-br from-accent-600 to-primary-500 text-white rounded-xl p-6 pt-20 flex flex-col justify-between items-center shadow-xl transition-transform duration-500 hover:scale-[1.08]">
 
                   <div class="absolute -top-14 w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-[0_0_10px_0px_rgba(0,0,0,0.1)] z-20">

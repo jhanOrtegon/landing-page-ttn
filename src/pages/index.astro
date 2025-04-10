@@ -7,9 +7,13 @@ import CentralizarProcesos from "../components/CentralizarProcesos.astro";
 import Testimonials from "../components/Testimonials.astro";
 import Newsletter from "../components/Newsletter.astro";
 import Footer from "../components/Footer.astro";
+import { seed } from "../../seed/seed";
 ---
 
-<Layout title="Ttn company">
+<Layout
+  title={seed.home.layout.title}
+  description={seed.home.layout.description}
+>
   <Header />
   <main>
     <Hero />

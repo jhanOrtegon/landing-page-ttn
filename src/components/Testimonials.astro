@@ -1,4 +1,6 @@
 ---
+import { seed } from "../../seed/seed";
+
 const testimonials = [
   {
     content:
@@ -33,20 +35,19 @@ const testimonials = [
       <span
         class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
       >
-        Historias de clientes
+        {seed.home.testimonials.badge}
       </span>
       <h2 class="mb-6 text-accent-500 dark:text-white">
-        Lo que dicen nuestros clientes
+        {seed.home.testimonials.title}
       </h2>
       <p class="text-gray-600 dark:text-gray-300">
-        No somos nosotros quienes lo decimos. Son nuestros clientes quienes
-        comparten cómo la tecnología de TTN transformó sus procesos.
+        {seed.home.testimonials.description}
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
       {
-        testimonials.map((testimonial, index) => (
+        seed.home.testimonials.data.map((testimonial, index) => (
           <div
             class="card p-6 border border-gray-200 dark:border-gray-700 slide-up"
             style={`animation-delay: ${index * 150}ms`}
