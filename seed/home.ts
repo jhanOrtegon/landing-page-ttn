@@ -36,7 +36,8 @@ export const home = {
       {
         imageAlt: "referente",
         title: "Referente mundial",
-        image: "/referente_mundial.png",
+        image:
+          "https://centralus1-mediap.svc.ms/transform/thumbnail?provider=spo&farmid=201429&inputFormat=jpg&cs=fFNQTw&docid=https%3A%2F%2Fmy.microsoftpersonalcontent.com%2F_api%2Fv2.0%2Fdrives%2Fb!wx6DM_DEdU-xCCM9RWIcqD_SKoTJitxNlGROgkRHBrBxfp_Pad4ASr7V1gId22OO%2Fitems%2F01TZZF7DMYKOZ7UCFLBMQIA5CE4IAAAAAA%3Ftempauth%3Dv1e.eyJzaXRlaWQiOiIzMzgzMWVjMy1jNGYwLTRmNzUtYjEwOC0yMzNkNDU2MjFjYTgiLCJhdWQiOiIwMDAwMDAwMy0wMDAwLTBmZjEtY2UwMC0wMDAwMDAwMDAwMDAvbXkubWljcm9zb2Z0cGVyc29uYWxjb250ZW50LmNvbUA5MTg4MDQwZC02YzY3LTRjNWItYjExMi0zNmEzMDRiNjZkYWQiLCJleHAiOiIxNzQ0NDI2ODAwIn0._9Zr-mDrM9-PmGIuAnHcHTcDPKfADREoaRTJ-sJEs_u2sW-zxXBwpdA0nDu6-2ELZjRIGOqpkhpu0KaNXKmR6eQ3omKcFCLL_OBU2bpVK9IX9ynIpC_UrQuPPSCuDDTHSX_ZdwQ44BoVI1FXOJFcjWeABLFN8mvJeWTgizSa3CFDdC-MFTE3JlFnJ2MweHHtPL5fZnZ9fnmXe0wo3eOz8HXdVbg3fhyr3x80KN-Ep1MBuL6X100eLlKePUSwHfNOl1v8BJNTGlo91MHDEY_KyqXgy4NsPoSShAvrHCl31gwQjtObsMN-LF90uSZyFpOdhu5m0Ix7nkBIr05_tLLCK68UCfRWTWkUkpu9tZSE1CR4jYiB9oYpEUd3g1Vhxg_vBtPc7uL4O_ZU2oo5-Lmmei1T8O4Vf7iFuXxBsfw_rzVW-l9Ei1jSF_yyZ7S-XiWedTHMw1hzpkWyJ9X6iSvVefbEmgQux1n2INRsMrl58rHzma16_t3Fhh3bh49lYu3J.6QHGNQ_IwBWRcs_C84vMBNBqZp_3p96ogbW5RNpcjmY%26version%3DPublished&cb=63838783772&encodeFailures=1&width=1270&height=847",
         badge: "Te entendemos mejor que nadie",
         initialDescription: "TTN Company fue creada por la",
         strongDescription: "Clínica Oftalmológica del Caribe",
