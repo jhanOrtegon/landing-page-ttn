@@ -1,9 +1,11 @@
 ---
+import OpenPositions from "../components/OpenPositions.tsx";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
 import { seed } from "../../seed/seed";
+import ToastProvider from "../components/ToastProvider";
 ---
 
 <Layout
@@ -20,78 +22,14 @@ import { seed } from "../../seed/seed";
 
     <section class="py-16 bg-white dark:bg-gray-800">
       <div class="container-custom">
-        <div class="max-w-5xl mx-auto">
-          <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-8">
-            {seed.career.whatWeDo.title}
-          </h2>
+        <!-- otras secciones omitidas -->
 
-          <div class="grid md:grid-cols-2 gap-8 mb-16">
-            {
-              seed.career.whatWeDo.data.map((item) => (
-                <div class="card p-6 border border-gray-200 dark:border-gray-700">
-                  <div class="flex items-center mb-4">
-                    <div class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 mr-4">
-                      <svg
-                        class="w-6 h-6 text-primary-600 dark:text-primary-400"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </div>
-                    <h3 class="text-xl font-semibold text-accent-500 dark:text-white">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p class="text-gray-600 dark:text-gray-300">
-                    {item.description}
-                  </p>
-                </div>
-              ))
-            }
-          </div>
+        <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-8">
+          {seed.career.openPositions.title}
+        </h2>
 
-          <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-8">
-            {seed.career.openPositions.title}
-          </h2>
-
-          <div class="space-y-6 mb-16">
-            {
-              seed.career.openPositions.data.map((item) => (
-                <div class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in">
-                  <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <h3 class="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0">
-                      {item.title}
-                    </h3>
-                    <span class="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                      {item.status}
-                    </span>
-                  </div>
-                  <p class="text-gray-600 dark:text-gray-300 mb-4">
-                    {item.description}
-                  </p>
-                  <div class="flex flex-wrap gap-2 mb-6">
-                    {item.techs.map((tech) => (
-                      <span class="inline-block px-3 py-1 text-xs font-medium rounded-full bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <a href="#" class="btn-secondary">
-                    Aplicar Ahora
-                  </a>
-                </div>
-              ))
-            }
-          </div>
-        </div>
+        <OpenPositions client:load data={seed.career.openPositions.data} />
+        <ToastProvider client:only="react" />
       </div>
     </section>
   </main>

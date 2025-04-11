@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
-import ContactForm from "../components/Contact.astro";
+
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+import ContactForm from "../components/ContactForm";
+import ToastProvider from "../components/ToastProvider";
 ---
 
 <Layout
@@ -17,7 +19,8 @@ import HeroSection from "../components/HeroSection.astro";
       title="Contacta con nosotros"
       description="Estamos aquí para ayudarle con cualquier pregunta que puedas tener sobre nuestros servicios."
     />
-    <ContactForm />
+    <ContactForm client:load />
+    <ToastProvider client:only="react" />
   </main>
   <Footer />
 </Layout>

@@ -80,7 +80,7 @@ export const aboutUs = {
       {
         name: "José De La Vega",
         title: "Director técnico",
-        img: "https://img-c.udemycdn.com/user/200_H/11767934_4361_2.jpg",
+        img: defaultImage,
         description:
           "Experto en gestión de proyectos tecnológicos, orientado a resultados y cumplimiento de metas clave.",
       },
@@ -94,7 +94,7 @@ export const aboutUs = {
       {
         name: "Duiristt Coba",
         title: "Líder de desarrollo",
-        img: "https://preview.redd.it/g3k9t1e8n7v61.jpg?width=170&format=pjpg&auto=webp&s=144ce6815a1075e4b91ad528c41e02045a4cd9b4",
+        img: defaultImage,
         description:
           "Especialista en arquitectura de software, comprometido con la calidad y la escalabilidad.",
       },
@@ -115,14 +115,14 @@ export const aboutUs = {
       {
         name: "Yesit Manjarres",
         title: "Desarrollador frontend",
-        img: "https://pbs.twimg.com/profile_images/1565058850448875522/Hty5RSlR_200x200.jpg",
+        img: defaultImage,
         description:
           "Desarrollador dinámico con atención al detalle y enfoque en la usabilidad y el rendimiento.",
       },
       {
         name: "Diego ortega",
         title: "Desarrolladora frontend",
-        img: "https://people.com/thmb/Bo8MTMyoT2JvQNg8fULYjTBEpow=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(511x0:513x2)/lala-1024-589f1474607b4defb07769b3da4bbbb5.jpg",
+        img: defaultImage,
         description:
           "Innovadora y resolutiva, especializada en interfaces intuitivas y componentes reutilizables.",
       },

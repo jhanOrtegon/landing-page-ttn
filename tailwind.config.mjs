@@ -4,6 +4,7 @@ export default {
   darkMode: "class",
   theme: {
     extend: {
+      overflow: ["hover", "focus"],
       colors: {
         secondary: {
           50: "#e9edf2",

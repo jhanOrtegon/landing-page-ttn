@@ -12,6 +12,16 @@
     @apply font-display;
   }
 
+  body {
+    transition: overflow 0.3s ease;
+  }
+
+  form {
+    input {
+      color: #003264;
+    }
+  }
+
   h1 {
     @apply text-4xl md:text-5xl lg:text-6xl font-bold;
   }
