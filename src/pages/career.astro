@@ -6,6 +6,10 @@ import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
 import { seed } from "../../seed/seed";
 import ToastProvider from "../components/ToastProvider";
+import { fetchVacantes } from "../../seed/career";
+
+const vacantes = await fetchVacantes();
+seed.career.openPositions.data = vacantes;
 ---
 
 <Layout
