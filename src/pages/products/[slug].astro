@@ -1,5 +1,5 @@
 ---
-// 1. Importar tus datos
+// ✅ Importar módulos necesarios
 import { seed } from "../../../seed/seed";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
@@ -7,16 +7,18 @@ import HeroSection from "../../components/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 import { fetchProductDetails } from "../../../seed/products";
 
+// ✅ Activar SSR: importante para que el contenido se cargue dinámicamente
+export const prerender = false;
+
+// ⚠️ No necesitas definir `getStaticPaths` si usas SSR, pero si lo dejas, devuélvelo vacío
 export async function getStaticPaths() {
-  return seed.products.data.map((el) => ({
-    params: { slug: el.slug },
-  }));
+  return [];
 }
 
-// 2. Obtener el parámetro de la URL
+// ✅ Obtener el parámetro dinámico del slug
 const { slug } = Astro.params;
 
-// 3. Buscar el servicio correspondiente
+// ✅ Llamar a la API para obtener los productos dinámicamente
 const allProduct = await fetchProductDetails();
 const product = allProduct.find((s) => s.slug === slug);
 
@@ -30,7 +32,7 @@ if (!product) {
   title={`Productos - ${product.slug} - TTN Company`}
   description={`Detalle del producto ${product.producto_nombre}`}
 >
-  <Header />
+  <Header title={product.banner.nombre} />
   <HeroSection
     title={product.banner.nombre}
     description={product.banner.texto}

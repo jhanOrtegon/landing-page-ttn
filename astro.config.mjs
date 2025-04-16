@@ -1,4 +1,5 @@
 // @ts-check
+import node from "@astrojs/node";
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import alpinejs from "@astrojs/alpinejs";
@@ -6,5 +7,10 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
+  adapter: node({ mode: "standalone" }),
   integrations: [react(), tailwind(), alpinejs()],
+  experimental: {
+    session: true, // ✅ Agrega esta línea
+  },
 });
