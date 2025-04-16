@@ -5,7 +5,6 @@ const apiUrl = import.meta.env.PUBLIC_API_URL_SEND_EMAIL;
 const admin_email = import.meta.env.PUBLIC_CONTACT_EMAIL;
 
 export default function ContactSection() {
-  console.log(apiUrl);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");

@@ -4,6 +4,10 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import { seed } from "../../../seed/seed";
+import { fetchProducts } from "../../../seed/products";
+
+const products = await fetchProducts();
+seed.products.data = products;
 ---
 
 <Layout
@@ -30,16 +34,16 @@ import { seed } from "../../../seed/seed";
                       {/* Contenido primero */}
                       <div>
                         <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4">
-                          {product.category}
+                          {product.categoría}
                         </span>
                         <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-4">
-                          {product.highlight}
+                          {product.titulo}
                         </h2>
                         <p class="text-accent-500 dark:text-gray-300 mb-6">
-                          {product.description}
+                          {product.descripción}
                         </p>
                         <div class="flex flex-wrap gap-4 mb-6">
-                          {product.subservices.map((subservice, i) => (
+                          {product.carasteristicas.map((subservice) => (
                             <div class="flex items-center">
                               <svg
                                 class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"
@@ -69,16 +73,16 @@ import { seed } from "../../../seed/seed";
                       </div>
                       {/* Imagen */}
                       <div
-                        class={`rounded-lg overflow-hidden flex flex-col ${product.slug === "biowel" ? "gap-8" : ""}`}
+                        class={`rounded-lg overflow-hidden flex flex-col gap-8`}
                       >
                         <img
-                          alt={product.alt}
-                          src={product.imageTitle}
+                          alt={"logotipo"}
+                          src={product.imagen_nombre_principal}
                           class="w-1/2 h-8 m-auto"
                         />
                         <img
-                          src={product.image}
-                          alt={product.alt}
+                          src={product.imagen_principal}
+                          alt={"imagen de fondo del producto"}
                           class="w-full h-full"
                         />
                       </div>
@@ -87,16 +91,16 @@ import { seed } from "../../../seed/seed";
                     <>
                       {/* Imagen primero */}
                       <div
-                        class={`rounded-lg overflow-hidden flex flex-col ${product.slug === "biowel" ? "gap-8" : ""}`}
+                        class={`rounded-lg overflow-hidden flex flex-col gap-8`}
                       >
                         <img
-                          alt={product.alt}
-                          src={product.imageTitle}
+                          alt={"logotipo"}
+                          src={product.imagen_nombre_principal}
                           class="w-1/2 h-8 m-auto"
                         />
                         <img
-                          src={product.image}
-                          alt={product.alt}
+                          src={product.imagen_principal}
+                          alt={"imagen de fondo del producto"}
                           class="w-full h-full"
                         />
                       </div>
@@ -104,16 +108,16 @@ import { seed } from "../../../seed/seed";
                       {/* Contenido */}
                       <div>
                         <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4">
-                          {product.category}
+                          {product.categoría}
                         </span>
                         <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-4">
-                          {product.highlight}
+                          {product.nombre}
                         </h2>
                         <p class="text-accent-500 dark:text-gray-300 mb-6">
-                          {product.description}
+                          {product.descripción}
                         </p>
                         <div class="flex flex-wrap gap-4 mb-6">
-                          {product.subservices.map((subservice, i) => (
+                          {product.carasteristicas.map((subservice, i) => (
                             <div class="flex items-center">
                               <svg
                                 class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"

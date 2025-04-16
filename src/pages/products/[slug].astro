@@ -5,10 +5,11 @@ import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
+import { fetchProductDetails } from "../../../seed/products";
 
 export async function getStaticPaths() {
-  return seed.products.data.map((product) => ({
-    params: { slug: product.slug },
+  return seed.products.data.map((el) => ({
+    params: { slug: el.slug },
   }));
 }
 
@@ -16,70 +17,28 @@ export async function getStaticPaths() {
 const { slug } = Astro.params;
 
 // 3. Buscar el servicio correspondiente
-const product = seed.products.data.find((s) => s.slug === slug);
+const allProduct = await fetchProductDetails();
+const product = allProduct.find((s) => s.slug === slug);
 
 if (!product) {
   return Astro.redirect("/404");
 }
-
-const tabs = [
-  { name: "GERENCIAL", key: "gerencial" },
-  { name: "RECURSOS HUMANOS", key: "rrhh" },
-  { name: "COMPRAS E INVENTARIOS", key: "compras" },
-];
-
-const faqs = [
-  {
-    question:
-      "¿La necesidad de mi empresa es diferente, cómo podrían ayudarme?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-  {
-    question: "¿Qué tipo de privacidad ofrece el servicio?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-  {
-    question: "¿Qué tipo de soporte ofrece la herramienta?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-  {
-    question: "¿Cómo puedo negociar acceso a este producto?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-  {
-    question: "¿Cuánto podría costar el software independiente?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-  {
-    question: "¿Existe alguna limitación en número de usuarios o activos?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-  {
-    question:
-      "¿Es posible vincular este software con los que existen actualmente en la empresa?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-  {
-    question: "¿Qué dispositivos tienen soporte?",
-    answer: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
-  },
-];
 ---
 
 <!-- Tu layout o plantilla con los datos -->
 <Layout
   title={`Productos - ${product.slug} - TTN Company`}
-  description={product.slug}
+  description={`Detalle del producto ${product.producto_nombre}`}
 >
   <Header />
   <HeroSection
-    title={product.alt}
-    description={product.description}
-    tags={product.subservices}
-    logo={product.imageTitle}
-    illustration={product.image}
+    title={product.banner.nombre}
+    description={product.banner.texto}
+    tags={product.banner.carasteristicas}
+    logo={product.banner.url_logotipo}
+    illustration={product.banner.url_imagen}
   />
-  <main class="py-14 bg-gray-50/50">
+  <main class="pt-14 bg-gray-50/50">
     <section class="container-custom-lg">
       <!-- ¿Qué es el producto? -->
       <div
@@ -87,16 +46,16 @@ const faqs = [
       >
         <div class="w-full flex flex-col py-14 px-12 pr-4 text-justify">
           <h2 class="text-2xl font-bold text-accent-500 dark:text-white">
-            ¿Qué es {product.name}?
+            {product.primer_bloque.nombre}
           </h2>
           <p class="text-lg text-gray-600 mt-4">
-            {product.description}
+            {product.primer_bloque.texto}
           </p>
-          <p class="text-xl text-gray-600 mt-4">
+          <!-- <p class="text-xl text-gray-600 mt-4">
             {product.description}
-          </p>
+          </p> -->
           <p class="text-sm text-gray-500 mt-2">
-            {product.alt}
+            {product.producto_nombre}
           </p>
           <div class="mt-5">
             <a
@@ -109,21 +68,25 @@ const faqs = [
         </div>
 
         <div class="flex items-center justify-center w-full h-full xl:hidden">
-          <img src={product.image} alt={product.alt} class="rounded-lg" />
+          <img
+            src={product.primer_bloque.primera_url_imagen}
+            alt={product.producto_nombre}
+            class="rounded-lg"
+          />
         </div>
 
         <!-- Contenedor derecho de imágenes -->
         <div class="hidden xl:block w-full relative">
           <!-- Imagen secundaria de fondo (Login) que sobresale -->
           <img
-            src={product.image}
-            alt={product.alt}
+            alt={product.producto_nombre}
+            src={product.primer_bloque.primera_url_imagen}
             class="absolute -right-10 -top-10 hidden md:block rounded-lg bg-white/95 max-w-[550px] p-4 shadow-[0_0_50px_0px_rgba(0,0,0,0.1)]"
           />
 
           <img
-            src={product.image}
-            alt={product.alt}
+            alt={product.producto_nombre}
+            src={product.primer_bloque.segunda_url_imagen}
             class="absolute z-10 -bottom-10 left-0 rounded-lg bg-white/95 max-w-[550px] p-4 shadow-[0_0_50px_0px_rgba(0,0,0,0.1)]"
           />
         </div>
@@ -134,19 +97,25 @@ const faqs = [
         <span
           class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
         >
-          Diseñado para el sector de la salud
+          {product.segundo_bloque.categoria}
         </span>
 
-        <h2 class="text-4xl text-accent-500 font-bold mb-10">Beneficios</h2>
+        <h2 class="text-4xl text-accent-500 font-bold mb-10">
+          {product.segundo_bloque.nombre}
+        </h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16 justify-center">
           {
-            product.subservices.map((item) => (
+            product.segundo_bloque.artículos.map((item) => (
               <div class="flex flex-col items-center justify-center rounded-md bg-white border-2 drop-shadow-xl p-6 md:min-h-[350px] text-center">
-                <img src={product.image} alt={product.alt} class="h-[120px]" />
-                <p class="text-accent-500 font-bold text-lg mt-4">{item}</p>
-                <p class="text-sm text-gray-600 mt-2">
-                  Este beneficio ayuda a mejorar procesos clave.
+                <img
+                  src={item.url_imagen}
+                  alt={item.nombre}
+                  class="h-[120px]"
+                />
+                <p class="text-accent-500 font-bold text-lg mt-4">
+                  {item.nombre}
                 </p>
+                <p class="text-sm text-gray-600 mt-2">{item.texto}</p>
               </div>
             ))
           }
@@ -160,25 +129,25 @@ const faqs = [
         <span
           class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
         >
-          Aplicaciones
+          {product.tercer_bloque.categoria}
         </span>
-        <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
+
         <h2 class="text-4xl text-accent-500 font-bold">
-          Centraliza procesos internos con un solo sistema
+          {product.tercer_bloque.nombre}
         </h2>
       </div>
 
       <div class="md:flex gap-6 mt-10">
         <div class="w-full md:w-6/12 relative">
           <img
-            src={product.image}
             alt="Apps illustration"
             class="w-full max-w-lg mx-auto"
+            src={product.tercer_bloque.url_imagen}
           />
         </div>
         <div class="grid grid-cols-2 gap-12 w-full justify-center">
           {
-            product.subservices.map((item) => (
+            product.tercer_bloque.carasteristicas.map((item) => (
               <div class="flex items-center bg-white drop-shadow-xl px-6 py-4 rounded-md gap-x-4">
                 <div class="p-2 bg-primary-50 flex items-center justify-center rounded-md">
                   <svg
@@ -211,11 +180,11 @@ const faqs = [
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              Gestión
+              {product.cuarto_bloque.categoria}
             </span>
             <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
             <h2 class="text-4xl text-accent-500 font-bold">
-              Controla tus recursos empresariales
+              {product.cuarto_bloque.nombre}
             </h2>
           </div>
 
@@ -224,86 +193,62 @@ const faqs = [
               <p
                 class="text-start text-xl text-gray-600 mb-4 w-[95%] leading-normal"
               >
-                Conoce el estado actual de tus recursos, tu inventario y tus
-                colaboradores con biowel
+                {product.cuarto_bloque.texto}
               </p>
 
               <div class="w-full max-w-3xl mx-auto mt-10">
                 <div class="flex space-x-6 border-b border-gray-200">
                   {
-                    tabs.map((tab) => (
+                    product.cuarto_bloque.tabs.map((tab) => (
                       <button
                         class={`tab-btn relative pb-2 text-sm font-medium hover:text-primary-500 transition-colors text-gray-600`}
-                        data-tab={tab.key}
+                        data-tab={tab.id}
                       >
-                        {tab.name}
+                        {tab.titulo}
                         <span class="tab-underline absolute left-0 bottom-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 text-primary-500" />
                       </button>
                     ))
                   }
                 </div>
 
-                <div class="tab-content mt-6 text-gray-600 text-md space-y-4">
-                  <div data-content="gerencial">
-                    <p>
-                      Entérate en tiempo real de lo que sucede con los informes
-                      estadísticos gerenciales.
-                    </p>
-                    <ul class="list-none space-y-4 text-start my-4">
-                      <li class="flex items-center">
-                        <svg
-                          class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-width="2"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-primary-500">
-                          Monitorización de indicadores por área.
-                        </span>
-                      </li>
-                      <li class="flex items-center">
-                        <svg
-                          class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-width="2"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-primary-500"
-                          >Resultados en tiempo real.</span
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div data-content="rrhh" class="hidden">
-                    <p>
-                      Información sobre gestión del talento humano y sus
-                      indicadores clave.
-                    </p>
-                  </div>
-                  <div data-content="compras" class="hidden">
-                    <p>
-                      Visualiza y controla inventarios, pedidos y compras desde
-                      un solo lugar.
-                    </p>
-                  </div>
-                </div>
+                {
+                  product.cuarto_bloque.tabs.map((tab) => (
+                    <div data-content={tab.id}>
+                      <div class="tab-content mt-6 text-gray-600 text-md space-y-4">
+                        <p>{tab.texto}</p>
+                        <ul class="list-none space-y-4 text-start my-4">
+                          {tab.carasteristicas.map((item) => (
+                            <li class="flex items-center">
+                              <svg
+                                class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  stroke-width="2"
+                                  stroke-linejoin="round"
+                                  d="M5 13l4 4L19 7"
+                                />
+                              </svg>
+                              <span class="text-primary-500">M{item}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  ))
+                }
               </div>
             </div>
 
             <div class="max-w-lg max-h-lg">
-              <img src={product.image} alt={product.alt} class="rounded-lg" />
+              <img
+                src={product.cuarto_bloque.url_imagen}
+                alt={product.cuarto_bloque.nombre}
+                class="rounded-lg"
+              />
             </div>
           </div>
         </div>
@@ -314,239 +259,215 @@ const faqs = [
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              Finanzas
+              {product.quinto_bloque.categoria}
             </span>
             <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
             <h2 class="text-4xl text-accent-500 font-bold">
-              Sistematiza tus procesos financieros
+              {product.quinto_bloque.nombre}
             </h2>
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-20 mt-10">
             <div class="max-w-lg max-h-lg">
-              <img src={product.image} alt={product.alt} class="rounded-lg" />
+              <img
+                src={product.quinto_bloque.url_imagen}
+                alt={product.quinto_bloque.nombre}
+                class="rounded-lg"
+              />
             </div>
 
             <div>
               <p
                 class="text-start text-xl text-gray-600 mb-4 w-[95%] leading-normal"
               >
-                Conoce el estado actual de tus recursos, tu inventario y tus
-                colaboradores con biowel
+                {product.quinto_bloque.texto}
               </p>
 
               <div class="w-full max-w-3xl mx-auto mt-10">
                 <div class="flex space-x-6 border-b border-gray-200">
                   {
-                    tabs.map((tab) => (
+                    product.quinto_bloque.tabs.map((tab) => (
                       <button
-                        class="tab-btn relative pb-2 text-sm font-medium text-gray-700 hover:text-primaty-500  transition-colors"
-                        data-tab={tab.key}
+                        class={`tab-btn relative pb-2 text-sm font-medium hover:text-primary-500 transition-colors text-gray-600`}
+                        data-tab={tab.id}
                       >
-                        {tab.name}
-                        <span class="tab-underline absolute left-0 bottom-0 w-0 h-0.5 bg-primary-500 transition-all duration-300" />
+                        {tab.titulo}
+                        <span class="tab-underline absolute left-0 bottom-0 w-0 h-0.5 bg-primary-500 transition-all duration-300 text-primary-500" />
                       </button>
                     ))
                   }
                 </div>
-
-                <div class="tab-content mt-6 text-gray-600 text-md space-y-4">
-                  <div data-content="gerencial">
-                    <p>
-                      Entérate en tiempo real de lo que sucede con los informes
-                      estadísticos gerenciales.
-                    </p>
-                    <ul class="list-none space-y-4 text-start my-4">
-                      <li class="flex items-center">
-                        <svg
-                          class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-width="2"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-primary-600"
-                          >Monitorización de indicadores por área.</span
-                        >
-                      </li>
-
-                      <li class="flex items-center">
-                        <svg
-                          class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            stroke-width="2"
-                            stroke-linejoin="round"
-                            d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        <span class="text-primary-600"
-                          >Resultados en tiempo real.</span
-                        >
-                      </li>
-                    </ul>
-                  </div>
-                  <div data-content="rrhh" class="hidden">
-                    <p>
-                      Información sobre gestión del talento humano y sus
-                      indicadores clave.
-                    </p>
-                  </div>
-                  <div data-content="compras" class="hidden">
-                    <p>
-                      Visualiza y controla inventarios, pedidos y compras desde
-                      un solo lugar.
-                    </p>
-                  </div>
+                <div class="flex space-x-6">
+                  {
+                    product.quinto_bloque.tabs.map((tab) => (
+                      <div data-content={tab.id}>
+                        <div class="tab-content mt-6 text-gray-600 text-md space-y-4">
+                          <p>{tab.texto}</p>
+                          <ul class="list-none space-y-4 text-start my-4">
+                            {tab.carasteristicas.map((item) => (
+                              <li class="flex items-center">
+                                <svg
+                                  class="w-5 h-5 text-primary-600 dark:text-primary-400 mr-2"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    stroke-width="2"
+                                    stroke-linejoin="round"
+                                    d="M5 13l4 4L19 7"
+                                  />
+                                </svg>
+                                <span class="text-primary-500">M{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    ))
+                  }
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
 
-    <!-- Preguntas y Patrocinio -->
-    <section class="container-custom-lg">
-      <div class="flex flex-col">
-        <!-- Preguntas -->
-        <div class="flex flex-col items-center text-center">
-          <div>
-            <span
-              class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
-            >
-              F.A.Q.
-            </span>
-            <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
-            <h2 class="text-4xl text-accent-500 font-bold">
-              Preguntas frecuentes
-            </h2>
-          </div>
+      <!-- Preguntas y Patrocinio -->
+      <section class="container-custom-lg">
+        <div class="flex flex-col">
+          <!-- Preguntas -->
+          <div class="flex flex-col items-center text-center">
+            <div>
+              <span
+                class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
+              >
+                {product.preguntas.nombre}
+              </span>
+              <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
+              <h2 class="text-4xl text-accent-500 font-bold">
+                {product.preguntas.nombre}
+              </h2>
+            </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
-            {
-              faqs.map((faq, i) => (
-                <div class="border rounded-md shadow-sm faq-content-height">
-                  <button
-                    class="faq-toggle w-full flex justify-between items-center text-left p-4 font-semibold text-gray-600 hover:bg-gray-100"
-                    data-index={i}
-                    aria-expanded="false"
-                  >
-                    {faq.question}
-                    <svg
-                      id={`icon-${i}`}
-                      class="w-5 h-5 transition-transform duration-300"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
+              {
+                product.preguntas.tabs.map((faq) => (
+                  <div class="border rounded-md shadow-sm faq-content-height">
+                    <button
+                      class="faq-toggle w-full flex justify-between items-center text-left p-4 font-semibold text-gray-600 hover:bg-gray-100"
+                      data-index={faq.id}
+                      aria-expanded="false"
                     >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </button>
-                  <div
-                    id={`faq-${i}`}
-                    class="faq-content px-4 overflow-hidden text-sm text-gray-600 transition-all duration-300 ease-in-out"
-                    style="max-height: 0;"
-                  >
-                    <div class="py-4">{faq.answer}</div>
+                      {faq.titulo}
+                      <svg
+                        id={`icon-${faq.id}`}
+                        class="w-5 h-5 transition-transform duration-300"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      id={`faq-${faq.id}`}
+                      class="faq-content px-4 overflow-hidden text-sm text-gray-600 transition-all duration-300 ease-in-out"
+                      style="max-height: 0;"
+                    >
+                      <div class="py-4">{faq.texto}</div>
+                    </div>
                   </div>
-                </div>
-              ))
-            }
-          </div>
-        </div>
-
-        <!-- Patrocinadores -->
-        <div class="flex flex-col items-center text-center mt-10">
-          <div>
-            <span
-              class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
-            >
-              Proyecto ganador.
-            </span>
-            <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
-            <h2 class="text-4xl text-accent-500 font-bold">
-              Desarrollado con el apoyo de
-            </h2>
+                ))
+              }
+            </div>
           </div>
 
-          <div class="flex gap-6 my-20 mt-10">
-            {
-              [1, 2, 3].map((el) => (
-                <div class="max-w-md max-h-md">
-                  <img
-                    src={product.image}
-                    alt={product.alt}
-                    class="rounded-lg"
-                  />
-                </div>
-              ))
-            }
+          <!-- Patrocinadores -->
+          <div class="flex flex-col items-center text-center mt-10">
+            <div>
+              <span
+                class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
+              >
+                {product.apoyo.categoria}
+              </span>
+              <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
+              <h2 class="text-4xl text-accent-500 font-bold">
+                {product.apoyo.nombre}
+              </h2>
+            </div>
+
+            <div class="flex gap-6 my-20 mt-10">
+              {
+                product.apoyo.urls.map((el) => (
+                  <div class="max-w-md max-h-md">
+                    <img
+                      src={el}
+                      alt={product.apoyo.nombre}
+                      class="rounded-lg"
+                    />
+                  </div>
+                ))
+              }
+            </div>
           </div>
         </div>
-      </div>
+      </section>
     </section>
+    <Footer />
   </main>
-  <Footer />
-</Layout>
 
-<script type="module" is:inline>
-  const buttons = document.querySelectorAll(".tab-btn");
-  const contents = document.querySelectorAll(".tab-content > div");
+  <script type="module" is:inline>
+    const buttons = document.querySelectorAll(".tab-btn");
+    const contents = document.querySelectorAll(".tab-content > div");
 
-  buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      // Reset underline
-      buttons.forEach((b) => {
-        b.querySelector(".tab-underline").style.width = "0";
-        b.classList.remove("text-primary-500");
-        b.classList.add("text-gray-700");
-      });
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        // Reset underline
+        buttons.forEach((b) => {
+          b.querySelector(".tab-underline").style.width = "0";
+          b.classList.remove("text-primary-500");
+          b.classList.add("text-gray-700");
+        });
 
-      btn.querySelector(".tab-underline").style.width = "100%";
-      btn.classList.add("text-primary-500");
-      btn.classList.remove("text-gray-700");
+        btn.querySelector(".tab-underline").style.width = "100%";
+        btn.classList.add("text-primary-500");
+        btn.classList.remove("text-gray-700");
 
-      const key = btn.dataset.tab;
-      contents.forEach((c) => {
-        c.classList.toggle("hidden", c.dataset.content !== key);
+        const key = btn.dataset.tab;
+        contents.forEach((c) => {
+          c.classList.toggle("hidden", c.dataset.content !== key);
+        });
       });
     });
-  });
 
-  // Show default underline on first tab
-  if (buttons.length > 0) {
-    buttons[0].querySelector(".tab-underline").style.width = "100%";
-    buttons[0].classList.add("text-primary-500");
-    buttons[0].classList.remove("text-gray-700");
-  }
-</script>
+    // Show default underline on first tab
+    if (buttons.length > 0) {
+      buttons[0].querySelector(".tab-underline").style.width = "100%";
+      buttons[0].classList.add("text-primary-500");
+      buttons[0].classList.remove("text-gray-700");
+    }
+  </script>
 
-<style>
-  @keyframes fade {
-    from {
-      opacity: 0;
-      transform: translateY(-4px);
+  <style>
+    @keyframes fade {
+      from {
+        opacity: 0;
+        transform: translateY(-4px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
+    .animate-fade {
+      animation: fade 0.2s ease-out;
     }
-  }
-  .animate-fade {
-    animation: fade 0.2s ease-out;
-  }
-</style>
+  </style>
+</Layout>
