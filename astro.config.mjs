@@ -10,7 +10,4 @@ export default defineConfig({
   output: "server",
   adapter: node({ mode: "standalone" }),
   integrations: [react(), tailwind(), alpinejs()],
-  experimental: {
-    session: true, // ✅ Agrega esta línea
-  },
 });
