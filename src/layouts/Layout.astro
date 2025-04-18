@@ -1,0 +1,160 @@
+---
+import "../styles/global.css";
+import "../styles/transitions.css";
+import { ViewTransitions } from "astro:transitions";
+
+export interface Props {
+  title: string;
+  description?: string;
+}
+
+const {
+  title,
+  description = "Modern SaaS landing page template with responsive design and modular sections.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html
+  lang="es"
+  x-data="{ darkMode: localStorage.getItem('darkMode') === 'true' }"
+  x-init="$watch('darkMode', val => localStorage.setItem('darkMode', val))"
+  :class="{ 'dark': darkMode }"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/ico" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lexend:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <ViewTransitions />
+  </head>
+  <body
+    class="antialiased bg-white dark:bg-secondary-950 text-secondary-900 dark:text-secondary-100 transition-colors duration-300"
+  >
+    <div id="page-wrapper" class="page-transition-wrapper">
+      <slot />
+    </div>
+
+    <div id="modal-root"></div>
+
+    <div id="toast-root"></div>
+
+    <script>
+      // Check for user preference
+      if (localStorage.getItem("darkMode") === null) {
+        // Check system preference
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+          localStorage.setItem("darkMode", "true");
+          document.documentElement.classList.add("dark");
+        } else {
+          localStorage.setItem("darkMode", "false");
+        }
+      }
+
+      localStorage.setItem("darkMode", "false");
+
+      // Handle page transitions
+      document.addEventListener("astro:page-load", () => {
+        // This runs on initial page load and after each navigation
+        const pageWrapper = document.getElementById("page-wrapper");
+        if (pageWrapper) {
+          pageWrapper.classList.add("page-loaded");
+        }
+      });
+
+      document.addEventListener("astro:before-swap", () => {
+        // This runs before the new page content is swapped in
+        const pageWrapper = document.getElementById("page-wrapper");
+        if (pageWrapper) {
+          pageWrapper.classList.remove("page-loaded");
+        }
+      });
+    </script>
+
+    <script is:inline>
+      function setupFaqToggles() {
+        const buttons = document.querySelectorAll(".faq-toggle");
+
+        buttons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const index = btn.dataset.index;
+            const content = document.getElementById(`faq-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            const isOpen =
+              content.style.maxHeight !== "0px" &&
+              content.style.maxHeight !== "";
+
+            const allContainers = Array.from(
+              document.querySelectorAll(".faq-content-height")
+            );
+            const clickedIndex = parseInt(index);
+
+            const leftIndex = clickedIndex > 0 ? clickedIndex - 1 : null;
+            if (leftIndex !== null && allContainers[leftIndex]) {
+              allContainers[leftIndex].style.height = "fit-content";
+            }
+
+            const rightIndex =
+              clickedIndex < allContainers.length - 1 ? clickedIndex + 1 : null;
+            if (rightIndex !== null && allContainers[rightIndex]) {
+              allContainers[rightIndex].style.height = "fit-content";
+            }
+
+            document.querySelectorAll(".faq-content").forEach((el) => {
+              el.style.maxHeight = "0px";
+            });
+
+            document.querySelectorAll(".faq-toggle").forEach((toggleBtn) => {
+              toggleBtn.setAttribute("aria-expanded", "false");
+            });
+
+            document.querySelectorAll("svg[id^='icon-']").forEach((svg) => {
+              svg.classList.remove("rotate-180");
+            });
+
+            if (!isOpen) {
+              content.style.maxHeight = content.scrollHeight + "px";
+              const container = btn.closest(".faq-content-height");
+              if (container) container.style.height = "fit-content";
+              icon.classList.add("rotate-180");
+              btn.setAttribute("aria-expanded", "true");
+            }
+
+            setTimeout(() => {
+              const anyOpen = Array.from(
+                document.querySelectorAll(".faq-content")
+              ).some(
+                (el) =>
+                  el.style.maxHeight !== "0px" && el.style.maxHeight !== ""
+              );
+
+              if (!anyOpen) {
+                document
+                  .querySelectorAll(".faq-content-height")
+                  .forEach((el) => {
+                    el.style.removeProperty("height");
+                  });
+              }
+            }, 100);
+          });
+        });
+      }
+
+      // Ejecutar al cargar
+      document.addEventListener("DOMContentLoaded", setupFaqToggles);
+
+      // Ejecutar en navegación SPA
+      document.addEventListener("astro:after-swap", setupFaqToggles);
+    </script>
+
+    <script src="../scripts/transitions.js"></script>
+  </body>
+</html>
