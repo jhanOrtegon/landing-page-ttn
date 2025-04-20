@@ -27,7 +27,7 @@ export default function OpenPositions({ data }: { data: Vacante[] }) {
                 {item.titulo}
               </h3>
               <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                {item.estado}
+                {item?.estado || "Presencial"}
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-4">

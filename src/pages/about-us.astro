@@ -4,7 +4,10 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
 import { seed } from "../../seed/seed";
+import { fetchEquipo } from "../../seed/about-us";
 
+const equipo = await fetchEquipo();
+seed.aboutUs.liderTeam.data = equipo;
 ---
 
 <Layout title="Sobre Nosotros - TTN Company" >
@@ -122,21 +125,21 @@ import { seed } from "../../seed/seed";
                   <div class="absolute -top-14 w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-[0_0_10px_0px_rgba(0,0,0,0.1)] z-20">
                     <div class="w-24 h-24 rounded-full overflow-hidden border-white">
                       <img
-                        alt={item.name}
+                        alt={item.nombre}
                         class="w-full h-full object-cover object-top"
-                        src={item.img}
+                        src={item.url_image}
                       />
                     </div>
                   </div>
 
                   <!-- Contenido dentro de la tarjeta -->
-                  <h3 class="text-xl font-bold tracking-wide text-center uppercase z-10">{item.name}</h3>
+                  <h3 class="text-xl font-bold tracking-wide text-center uppercase z-10">{item.nombre}</h3>
 
                   <p class="text-sm text-center leading-relaxed font-light italic opacity-90 mt-2 z-10 px-2">
-                    {item.description}
+                    {item.descripcion}
                   </p>
 
-                  <p class="text-xs mt-2 tracking-widest font-semibold uppercase z-10">{item.title}</p>
+                  <p class="text-xs mt-2 tracking-widest font-semibold uppercase z-10">{item.cargo}</p>
                 </div>
 
               ))
