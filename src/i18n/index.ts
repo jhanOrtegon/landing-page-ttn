@@ -382,6 +382,46 @@ export const translations = {
       },
     },
 
+    contact: {
+      layout: {
+        title: "Contacta con nosotros - TTN Company",
+        description:
+          "Nuestro equipo está aquí para ayudarte en cada paso del proceso.",
+      },
+      heroSection: {
+        title: "Contacta con nosotros",
+        description:
+          "Estamos aquí para ayudarle con cualquier pregunta que puedas tener sobre nuestros servicios.",
+      },
+      contactSection: {
+        sectionTitle: "Nos encantaría saber más sobre ti",
+        sectionDescription:
+          "¿Tienes preguntas sobre nuestra plataforma o necesitas ayuda para empezar? Nuestro equipo está aquí para ayudarte en cada paso del proceso.",
+        emailLabel: "Envíenos un correo electrónico",
+        phoneLabel: "Llámanos",
+        visitLabel: "Visítanos",
+        followLabel: "Síguenos",
+        sendMessage: "Envíanos un mensaje",
+        sentTitle: "¡Mensaje enviado!",
+        sentMessage:
+          "Gracias por contactarnos. Te responderemos lo antes posible.",
+        submit: "Enviar mensaje",
+        placeholders: {
+          name: "Nombre",
+          email: "Correo electrónico",
+          message: "Mensaje",
+        },
+        errors: {
+          name: "Por favor ingresa tu nombre.",
+          email: "Por favor ingresa tu correo.",
+          invalidEmail: "Correo electrónico no válido.",
+          message: "Por favor escribe tu mensaje.",
+          failure: "Hubo un error al enviar el mensaje.",
+          success: "¡Mensaje enviado con éxito!",
+        },
+      },
+    },
+
     footer: {
       description:
         "Modernizamos los procesos de clínicas y hospitales en todo el mundo a través del desarrollo de software y tecnología.",
@@ -434,7 +474,7 @@ export const translations = {
       ],
       btn: {
         text: "Contact us",
-        url: "/en/contact",
+        url: "/contact/en",
       },
     },
 
@@ -443,7 +483,7 @@ export const translations = {
       typewriter: "Transforming the healthcare industry",
       description: "We modernize clinic and hospital processes worldwide",
       ctaText: "Learn more",
-      ctaUrl: "/en/contact",
+      ctaUrl: "/contact/en",
       banner:
         "We drive digital transformation in health with smart and scalable software.",
     },
@@ -803,6 +843,46 @@ export const translations = {
         },
 
         data: [], // dynamically filled
+      },
+    },
+
+    contact: {
+      layout: {
+        title: "Contact us - TTN Company",
+        description: "Our team is here to assist you every step of the way.",
+      },
+      heroSection: {
+        title: "Contact us",
+        description:
+          "We’re here to help with any questions you might have about our services.",
+      },
+
+      contactSection: {
+        sectionTitle: "We’d love to hear from you",
+        sectionDescription:
+          "Have questions about our platform or need help getting started? Our team is here to support you every step of the way.",
+        emailLabel: "Send us an email",
+        phoneLabel: "Call us",
+        visitLabel: "Visit us",
+        followLabel: "Follow us",
+        sendMessage: "Send us a message",
+        sentTitle: "Message sent!",
+        sentMessage:
+          "Thanks for reaching out. We'll get back to you as soon as possible.",
+        submit: "Send message",
+        placeholders: {
+          name: "Full name",
+          email: "Email address",
+          message: "Message",
+        },
+        errors: {
+          name: "Please enter your name.",
+          email: "Please enter your email.",
+          invalidEmail: "Invalid email address.",
+          message: "Please enter your message.",
+          failure: "There was an error sending your message.",
+          success: "Message sent successfully!",
+        },
       },
     },
 
