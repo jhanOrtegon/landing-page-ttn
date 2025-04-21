@@ -1,11 +1,11 @@
 ---
 // ✅ Importar módulos necesarios
-import { seed } from "../../../seed/seed";
 import Footer from "../../components/Footer.astro";
 import Header from "../../components/Header.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import Layout from "../../layouts/Layout.astro";
 import { fetchProductDetails } from "../../../seed/products";
+import { getTranslation } from "../../i18n";
 
 // ✅ Activar SSR: importante para que el contenido se cargue dinámicamente
 export const prerender = false;
@@ -25,6 +25,9 @@ const product = allProduct.find((s) => s.slug === slug);
 if (!product) {
   return Astro.redirect("/404");
 }
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <!-- Tu layout o plantilla con los datos -->
@@ -32,7 +35,7 @@ if (!product) {
   title={`Productos - ${product.slug} - TTN Company`}
   description={`Detalle del producto ${product.producto_nombre}`}
 >
-  <Header title={product.banner.nombre} />
+  <Header title={product.banner.nombre} t={t} />
   <HeroSection
     title={product.banner.nombre}
     description={product.banner.texto}
@@ -422,7 +425,7 @@ if (!product) {
         </div>
       </section>
     </section>
-    <Footer />
+    <Footer t={t} />
   </main>
 
   <script type="module" is:inline>

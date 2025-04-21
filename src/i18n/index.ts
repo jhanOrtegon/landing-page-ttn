@@ -422,6 +422,27 @@ export const translations = {
       },
     },
 
+    products: {
+      layout: {
+        title: "Productos - TTN Company",
+        description:
+          "Conoce nuestras soluciones para potenciar el sector salud.",
+      },
+      heroSection: {
+        img: "/banner-products.jpg",
+        title: "Nuestros productos",
+        description:
+          "Impulsamos la transformación digital con herramientas diseñadas para clínicas y hospitales.",
+      },
+      labels: {
+        cta: "Conoce más",
+        category: "Categoría",
+        features: "Características",
+        subtitle: "Soluciones integradas para el sector salud",
+      },
+      data: [], // se llena dinámicamente con fetchProducts()
+    },
+
     footer: {
       description:
         "Modernizamos los procesos de clínicas y hospitales en todo el mundo a través del desarrollo de software y tecnología.",
@@ -884,6 +905,26 @@ export const translations = {
           success: "Message sent successfully!",
         },
       },
+    },
+
+    products: {
+      layout: {
+        title: "Products - TTN Company",
+        description: "Discover our solutions to enhance the healthcare sector.",
+      },
+      heroSection: {
+        img: "/banner-products.jpg",
+        title: "Our Products",
+        description:
+          "We drive digital transformation with tools designed for clinics and hospitals.",
+      },
+      labels: {
+        cta: "Learn more",
+        category: "Category",
+        features: "Features",
+        subtitle: "Integrated solutions for the healthcare sector",
+      },
+      data: [], // dynamically filled with fetchProducts()
     },
 
     footer: {
