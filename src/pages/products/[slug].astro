@@ -113,12 +113,12 @@ const t = getTranslation(pathname);
             product.segundo_bloque.artículos.map((item) => (
               <div class="flex flex-col items-center justify-center rounded-md bg-white border-2 drop-shadow-xl p-6 md:min-h-[350px] text-center">
                 <img
-                  src={item.url_imagen}
-                  alt={item.nombre}
+                  src={item.nombre}
+                  alt={item.url_imagen}
                   class="h-[120px]"
                 />
                 <p class="text-accent-500 font-bold text-lg mt-4">
-                  {item.nombre}
+                  {item.url_imagen}
                 </p>
                 <p class="text-sm text-gray-600 mt-2">{item.texto}</p>
               </div>
@@ -408,7 +408,7 @@ const t = getTranslation(pathname);
               </h2>
             </div>
 
-            <div class="flex gap-6 my-20 mt-10">
+            <div class="flex gap-10 my-20 mt-2 items-center justify-around">
               {
                 product.apoyo.urls.map((el) => (
                   <div class="max-w-md max-h-md">
