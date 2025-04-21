@@ -5,22 +5,29 @@ import Footer from "../../components/Footer.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import { getTranslation } from "../../i18n";
 import { fetchEquipo } from "../../../seed/about-us";
-import { seed } from "../../../seed/seed";
 
 const pathname = Astro.url.pathname;
-const t = getTranslation(pathname);
-
 const equipo = await fetchEquipo();
-seed.aboutUs.liderTeam.data = equipo;
+
+const translated = {
+  ...getTranslation(pathname),
+  aboutUs: {
+    ...getTranslation(pathname).aboutUs,
+    liderTeam: {
+      ...getTranslation(pathname).aboutUs.liderTeam,
+      data: equipo,
+    },
+  },
+};
 ---
 
 <Layout title="About Us - TTN Company">
-  <Header t={t} />
+  <Header t={translated} />
   <main>
     <HeroSection
-      img={t.aboutUs.heroSection.img}
-      title={t.aboutUs.heroSection.title}
-      description={t.aboutUs.heroSection.description}
+      img={translated.aboutUs.heroSection.img}
+      title={translated.aboutUs.heroSection.title}
+      description={translated.aboutUs.heroSection.description}
     />
 
     <section
@@ -32,22 +39,22 @@ seed.aboutUs.liderTeam.data = equipo;
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              {seed.aboutUs.history.badge}
+              {translated.aboutUs.history.badge}
             </span>
             <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-6">
-              {seed.aboutUs.history.title}
+              {translated.aboutUs.history.title}
             </h2>
             <p class="text-gray-600 dark:text-gray-300 mb-4 text-justify">
-              {seed.aboutUs.history.initialDescription}
+              {translated.aboutUs.history.initialDescription}
               <br />
               <br />
-              {seed.aboutUs.history.endDescription}
+              {translated.aboutUs.history.endDescription}
             </p>
           </div>
           <div class="rounded-lg overflow-hidden shadow-xl">
             <img
-              src={seed.aboutUs.history.image}
-              alt={seed.aboutUs.history.imageAlt}
+              src={translated.aboutUs.history.image}
+              alt={translated.aboutUs.history.imageAlt}
               class="rounded-lg w-full h-auto hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[0.98]"
             />
           </div>
@@ -58,19 +65,19 @@ seed.aboutUs.liderTeam.data = equipo;
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              {seed.aboutUs.values.badge}
+              {translated.aboutUs.values.badge}
             </span>
             <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-4">
-              {seed.aboutUs.values.title}
+              {translated.aboutUs.values.title}
             </h2>
             <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              {seed.aboutUs.values.description}
+              {translated.aboutUs.values.description}
             </p>
           </div>
 
           <div class="grid md:grid-cols-3 gap-8">
             {
-              seed.aboutUs.values.data.map((value) => (
+              translated.aboutUs.values.data.map((value) => (
                 <div class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02]">
                   <div class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
@@ -103,19 +110,19 @@ seed.aboutUs.liderTeam.data = equipo;
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
-              {seed.aboutUs.liderTeam.badge}
+              {translated.aboutUs.liderTeam.badge}
             </span>
             <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-4">
-              {seed.aboutUs.liderTeam.title}
+              {translated.aboutUs.liderTeam.title}
             </h2>
             <p class="text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              {seed.aboutUs.liderTeam.description}
+              {translated.aboutUs.liderTeam.description}
             </p>
           </div>
 
           <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10 gap-y-24">
             {
-              seed.aboutUs.liderTeam.data.map((item) => (
+              translated.aboutUs.liderTeam.data.map((item) => (
                 <div class="relative w-full h-72 bg-gradient-to-br from-accent-600 to-primary-500 text-white rounded-xl p-6 pt-20 flex flex-col justify-between items-center shadow-xl transition-transform duration-500 hover:scale-[1.08]">
                   <div class="absolute -top-14 w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-[0_0_10px_0px_rgba(0,0,0,0.1)] z-20">
                     <div class="w-24 h-24 rounded-full overflow-hidden border-white">
@@ -155,5 +162,5 @@ seed.aboutUs.liderTeam.data = equipo;
       </div>
     </section>
   </main>
-  <Footer t={t} />
+  <Footer t={translated} />
 </Layout>

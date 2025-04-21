@@ -188,11 +188,130 @@ export const translations = {
 
     aboutUs: {
       heroSection: {
-        title: "Conócenos",
+        title: "Somos TTN Company",
+        img: "/bannerAbout.png",
         description:
-          "Somos una empresa comprometida con la innovación en salud.",
-        img: "/img/about-hero.jpg",
+          "Nuestra misión es empoderar a las empresas con soluciones SaaS innovadoras.",
       },
+      history: {
+        badge: "Nuestra historia",
+        title: "Referente en innovación clínica",
+        image: "/innovacion.jpg",
+        imageAlt: "Equipo",
+        initialDescription:
+          "Fundada en 2020 con el respaldo de la Clínica Oftalmológica del Caribe, TTN Company nació con una visión clara: desarrollar soluciones tecnológicas innovadoras para responder a las necesidades reales del sector salud. Lo que comenzó como una startup impulsada por una idea ambiciosa, hoy se proyecta como un actor clave en la transformación digital de los servicios clínicos.",
+        endDescription:
+          "Nuestro camino ha estado lleno de aprendizajes, pero nuestro compromiso con la innovación, la calidad y el impacto en la atención médica se ha mantenido firme. Nos enorgullece ver cómo nuestras soluciones han contribuido a optimizar procesos, facilitar el trabajo de los profesionales de la salud y mejorar la experiencia de los pacientes.",
+      },
+      values: {
+        badge: "Nuestros valores",
+        title: "Lo que representamos",
+        description:
+          "Nuestros valores guían todo lo que hacemos, desde cómo construimos nuestros productos hasta cómo interactuamos con nuestros clientes y entre nosotros.",
+        data: [
+          {
+            title: "Innovación y Excelencia",
+            description:
+              "Nuestro compromiso con la innovación, la calidad y el impacto en la atención médica se ha mantenido firme. Nos enorgullece ver cómo nuestras soluciones han contribuido a optimizar procesos, facilitar el trabajo de los profesionales de la salud y mejorar la experiencia de los pacientes.",
+          },
+          {
+            title: "Confianza y Transparencia",
+            description:
+              "Creemos en generar confianza a través de la transparencia. Somos abiertos con nuestros procesos y políticas, y siempre nos esforzamos por hacer lo mejor para nuestros clientes.",
+          },
+          {
+            title: "Juventud y Emprendedores",
+            description:
+              "Nuestro equipo de líderes aporta una amplia experiencia y una pasión compartida por la innovación. Somos un equipo de personas activas y comprometidos con el desarrollo de soluciones tecnológicas que ayuden a mejorar la experiencia de los pacientes.",
+          },
+        ],
+      },
+      liderTeam: {
+        badge: "Equipo de Liderazgo",
+        title: "Conozca a nuestros líderes",
+        description:
+          "Nuestro diverso equipo de líderes aporta una amplia experiencia y una pasión compartida por la innovación.",
+        data: [], // se completará dinámicamente
+      },
+    },
+
+    services: {
+      layout: {
+        title: "Servicios - TTN Company",
+        description:
+          "Conoce cómo potencializarlos con nuestros servicios y soluciones",
+      },
+      heroSection: {
+        img: "/banner-services.jpg",
+        title: "Creamos software que transforma el sector salud",
+        description:
+          "Conoce cómo potencializarlos con nuestros servicios y soluciones",
+      },
+      data: [
+        {
+          slug: "telemedicina",
+          name: "Telemedicina",
+          descripcion:
+            "Plataforma que facilita la conexión entre pacientes y profesionales de la salud para consultas médicas en tiempo real desde cualquier ubicación.",
+          imagen:
+            "https://www.ttncompany.com/static/media/TelemedicineProduct.a0f25363f864031260371afb8f357e0b.svg",
+          alt: "Consulta médica en línea",
+        },
+        {
+          slug: "phase",
+          name: "Phase",
+          descripcion:
+            "Software integral diseñado para gestionar y mejorar los procesos de calidad dentro de una organización, asegurando el cumplimiento de normativas como ISO 9001.",
+          imagen:
+            "https://www.ttncompany.com/static/media/phaseProducts.159bfddc24a205ea0212124db7c9a48c.svg",
+          alt: "Software de gestión de calidad",
+        },
+        {
+          slug: "sourset",
+          name: "Sourset",
+          descripcion:
+            "Solución completa para el seguimiento y gestión de los activos fijos de la empresa, optimizando la administración financiera y operativa de los recursos físicos.",
+          imagen:
+            "https://www.ttncompany.com/static/media/soursetProduct.f98b9b5f028d303ac9e1faac141fd8fe.svg",
+          alt: "Administración de activos fijos",
+        },
+        {
+          slug: "vpocket",
+          name: "Vpocket",
+          descripcion:
+            "Aplicación diseñada para gestionar y monitorear el uso de tarjetas de crédito corporativas, facilitando el control financiero y la transparencia en los gastos empresariales.",
+          imagen:
+            "https://www.ttncompany.com/static/media/vPocketProduct.27a4544906379506a9814872c68f03d4.svg",
+          alt: "Control de tarjetas de crédito",
+        },
+        {
+          slug: "vacu+",
+          name: "Vacu+",
+          descripcion:
+            "Sistema avanzado que automatiza las interacciones con los clientes mediante chatbots y asistentes virtuales, mejorando la eficiencia del servicio al cliente.",
+          imagen:
+            "https://www.ttncompany.com/static/media/vacuProduct.5983feca67eeeadd7c025726a13e9ea3.svg",
+          alt: "Automatización de atención al cliente",
+        },
+        {
+          slug: "biowel-asistencial",
+          name: "Biowel Asistencial",
+          descripcion:
+            "Plataforma especializada en la gestión de servicios asistenciales, facilitando la coordinación de citas, órdenes médicas y seguimiento de pacientes.",
+          imagen:
+            "https://www.ttncompany.com/static/media/biowelHealthProduct.3b925cacd9b9d2a58216daee0d8ec925.svg",
+          alt: "Software de asistencia y ordenamientos",
+        },
+        {
+          slug: "biowel",
+          name: "Biowel",
+          descripcion:
+            "Solución integral para la gestión administrativa y financiera de las organizaciones, proporcionando una visión completa y en tiempo real de la salud financiera de la empresa.",
+          imagen:
+            "https://www.ttncompany.com/static/media/biowelProduct.e92aa93b3fcae8aa81807c86997b4de2.svg",
+          alt: "Administración y finanzas corporativas",
+        },
+      ],
     },
 
     footer: {
@@ -235,6 +354,7 @@ export const translations = {
       },
     },
   },
+
   en: {
     header: {
       nav: [
@@ -423,10 +543,130 @@ export const translations = {
 
     aboutUs: {
       heroSection: {
-        title: "Get to know us",
-        description: "We are a company committed to healthcare innovation.",
-        img: "/img/about-hero.jpg",
+        title: "We are TTN Company",
+        img: "/bannerAbout.png",
+        description:
+          "Our mission is to empower companies with innovative SaaS solutions.",
       },
+      history: {
+        badge: "Our History",
+        title: "A benchmark in clinical innovation",
+        image: "/innovacion.jpg",
+        imageAlt: "Team",
+        initialDescription:
+          "Founded in 2020 with the support of the Caribbean Ophthalmology Clinic, TTN Company was born with a clear vision: to develop innovative technological solutions that meet the real needs of the healthcare sector. What began as a startup driven by an ambitious idea is now emerging as a key player in the digital transformation of clinical services.",
+        endDescription:
+          "Our journey has been full of learning, but our commitment to innovation, quality, and impact on medical care has remained strong. We are proud to see how our solutions have helped optimize processes, facilitate the work of healthcare professionals, and improve the patient experience.",
+      },
+      values: {
+        badge: "Our Values",
+        title: "What we stand for",
+        description:
+          "Our values guide everything we do — from how we build our products to how we interact with our clients and each other.",
+        data: [
+          {
+            title: "Innovation and Excellence",
+            description:
+              "Our commitment to innovation, quality, and impact on medical care has remained unwavering. We are proud to see how our solutions have helped optimize processes and improve the patient experience.",
+          },
+          {
+            title: "Trust and Transparency",
+            description:
+              "We believe in building trust through transparency. We are open about our processes and policies and always strive to do what's best for our clients.",
+          },
+          {
+            title: "Youth and Entrepreneurship",
+            description:
+              "Our leadership team brings a wealth of experience and a shared passion for innovation. We are an active, committed team focused on developing technological solutions to enhance the healthcare experience.",
+          },
+        ],
+      },
+      liderTeam: {
+        badge: "Leadership Team",
+        title: "Meet our leaders",
+        description:
+          "Our diverse leadership team brings extensive experience and a shared passion for innovation.",
+        data: [], // dynamically populated
+      },
+    },
+
+    services: {
+      layout: {
+        title: "Services - TTN Company",
+        description:
+          "Discover how to enhance them with our services and solutions",
+      },
+      heroSection: {
+        img: "/banner-services.jpg",
+        title: "We build software that transforms the healthcare sector",
+        description:
+          "Discover how to enhance them with our services and solutions",
+      },
+      data: [
+        {
+          slug: "telemedicina",
+          name: "Telemedicine",
+          descripcion:
+            "A platform that facilitates real-time connections between patients and healthcare professionals for remote medical consultations from any location.",
+          imagen:
+            "https://www.ttncompany.com/static/media/TelemedicineProduct.a0f25363f864031260371afb8f357e0b.svg",
+          alt: "Online medical consultation",
+        },
+        {
+          slug: "phase",
+          name: "Phase",
+          descripcion:
+            "Comprehensive software designed to manage and improve quality processes within an organization, ensuring compliance with standards such as ISO 9001.",
+          imagen:
+            "https://www.ttncompany.com/static/media/phaseProducts.159bfddc24a205ea0212124db7c9a48c.svg",
+          alt: "Quality management software",
+        },
+        {
+          slug: "sourset",
+          name: "Sourset",
+          descripcion:
+            "Complete solution for tracking and managing fixed assets, optimizing the financial and operational administration of physical resources.",
+          imagen:
+            "https://www.ttncompany.com/static/media/soursetProduct.f98b9b5f028d303ac9e1faac141fd8fe.svg",
+          alt: "Fixed asset management",
+        },
+        {
+          slug: "vpocket",
+          name: "Vpocket",
+          descripcion:
+            "An application designed to manage and monitor the use of corporate credit cards, facilitating financial control and expense transparency.",
+          imagen:
+            "https://www.ttncompany.com/static/media/vPocketProduct.27a4544906379506a9814872c68f03d4.svg",
+          alt: "Corporate credit card control",
+        },
+        {
+          slug: "vacu+",
+          name: "Vacu+",
+          descripcion:
+            "Advanced system that automates customer interactions through chatbots and virtual assistants, improving customer service efficiency.",
+          imagen:
+            "https://www.ttncompany.com/static/media/vacuProduct.5983feca67eeeadd7c025726a13e9ea3.svg",
+          alt: "Customer service automation",
+        },
+        {
+          slug: "biowel-asistencial",
+          name: "Biowel Care",
+          descripcion:
+            "A platform specialized in managing healthcare services, streamlining appointment scheduling, medical orders, and patient follow-up.",
+          imagen:
+            "https://www.ttncompany.com/static/media/biowelHealthProduct.3b925cacd9b9d2a58216daee0d8ec925.svg",
+          alt: "Healthcare and order management software",
+        },
+        {
+          slug: "biowel",
+          name: "Biowel",
+          descripcion:
+            "Comprehensive solution for the administrative and financial management of organizations, providing a complete and real-time view of the company’s financial health.",
+          imagen:
+            "https://www.ttncompany.com/static/media/biowelProduct.e92aa93b3fcae8aa81807c86997b4de2.svg",
+          alt: "Corporate administration and finance",
+        },
+      ],
     },
 
     footer: {
