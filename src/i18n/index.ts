@@ -314,6 +314,74 @@ export const translations = {
       ],
     },
 
+    career: {
+      layout: {
+        title: "Trabaja con nosotros - TTN Company",
+        description: "Queremos que hagas parte de nuestro equipo",
+      },
+      heroSection: {
+        img: "/banner-careers.jpg",
+        title: "Trabaja con nosotros",
+        description: "Queremos que hagas parte de nuestro equipo",
+      },
+      whatWeDo: {
+        title: "¿Por qué trabajar con nosotros?",
+        data: [
+          {
+            title: "Tecnología de vanguardia",
+            description:
+              "Trabaje con las últimas tecnologías y herramientas para resolver problemas desafiantes.",
+            icon: "💻",
+            color: "primary",
+          },
+          {
+            title: "Equipo diverso e inclusivo",
+            description:
+              "Únase a un equipo global con diversos antecedentes, perspectivas y experiencias.",
+            icon: "🌍",
+            color: "primary",
+          },
+          {
+            title: "Beneficios competitivos",
+            description:
+              "Disfrute de un salario competitivo, beneficios de salud, opciones sobre acciones y oportunidades de desarrollo profesional.",
+            icon: "🎯",
+            color: "primary",
+          },
+          {
+            title: "Cultura de crecimiento",
+            description:
+              "Fomentamos un ambiente de aprendizaje continuo, donde tu carrera puede crecer con nosotros.",
+            icon: "🚀",
+            color: "primary",
+          },
+        ],
+      },
+      openPositions: {
+        title: "¿Quieres trabajar con nosotros?",
+        labels: {
+          successToast: "¡Solicitud enviada con éxito!",
+          applyNow: "Aplicar Ahora",
+          defaultMode: "Presencial",
+        },
+        apply: {
+          modalTitle: "Aplica a la posición",
+          namePlaceholder: "Nombre completo",
+          emailPlaceholder: "Correo electrónico",
+          profilePlaceholder: "https://www.linkedin.com/in/usuario",
+          sending: "Enviando...",
+          submit: "Enviar solicitud",
+          errorIncomplete: "Por favor completa todos los campos.",
+          errorEmail: "Ingresa un correo electrónico válido.",
+          errorProfile:
+            "Ingresa un enlace válido de perfil profesional (LinkedIn, GitHub, etc).",
+          success: "¡Solicitud enviada con éxito!",
+          failure: "Hubo un error al enviar tu solicitud.",
+        },
+        data: [], // se llenará dinámicamente con fetchVacantes
+      },
+    },
+
     footer: {
       description:
         "Modernizamos los procesos de clínicas y hospitales en todo el mundo a través del desarrollo de software y tecnología.",
@@ -667,6 +735,75 @@ export const translations = {
           alt: "Corporate administration and finance",
         },
       ],
+    },
+
+    career: {
+      layout: {
+        title: "Work with us - TTN Company",
+        description: "We want you to be part of our team",
+      },
+      heroSection: {
+        img: "/banner-careers.jpg",
+        title: "Work with us",
+        description: "We want you to be part of our team",
+      },
+      whatWeDo: {
+        title: "Why work with us?",
+        data: [
+          {
+            title: "Cutting-edge technology",
+            description:
+              "Work with the latest technologies and tools to solve challenging problems.",
+            icon: "💻",
+            color: "primary",
+          },
+          {
+            title: "Diverse and inclusive team",
+            description:
+              "Join a global team with diverse backgrounds, perspectives, and experiences.",
+            icon: "🌍",
+            color: "primary",
+          },
+          {
+            title: "Competitive benefits",
+            description:
+              "Enjoy competitive salaries, health benefits, stock options, and professional development opportunities.",
+            icon: "🎯",
+            color: "primary",
+          },
+          {
+            title: "Growth culture",
+            description:
+              "We foster an environment of continuous learning where your career can grow with us.",
+            icon: "🚀",
+            color: "primary",
+          },
+        ],
+      },
+      openPositions: {
+        title: "Want to work with us?",
+        labels: {
+          successToast: "Application submitted successfully!",
+          applyNow: "Apply Now",
+          defaultMode: "On-site",
+        },
+        apply: {
+          modalTitle: "Apply to the position",
+          namePlaceholder: "Full name",
+          emailPlaceholder: "Email address",
+          profilePlaceholder: "https://www.linkedin.com/in/yourname",
+          sending: "Sending...",
+          submit: "Submit application",
+          errorIncomplete: "Please fill out all fields.",
+          errorEmail: "Enter a valid email address.",
+          errorProfile:
+            "Enter a valid professional profile link (LinkedIn, GitHub, etc).",
+          success: "Application submitted successfully!",
+          failure: "There was an error submitting your application.",
+        },
+
+        data: [], // dynamically filled
+      },
     },
 
     footer: {

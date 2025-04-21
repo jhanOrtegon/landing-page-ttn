@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { createPortal } from "react-dom";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { API_URL_SEND_EMAIL, JOB_EMAIL } from "../../lib/constant";
 
 interface ApplyModalProps {
@@ -9,6 +9,19 @@ interface ApplyModalProps {
   isOpen: boolean;
   onClose: () => void;
   setSuccess: (success: boolean) => void;
+  t: {
+    modalTitle: string;
+    namePlaceholder: string;
+    emailPlaceholder: string;
+    profilePlaceholder: string;
+    sending: string;
+    submit: string;
+    errorIncomplete: string;
+    errorEmail: string;
+    errorProfile: string;
+    success: string;
+    failure: string;
+  };
 }
 
 const isValidEmail = (email: string) => {
@@ -27,6 +40,7 @@ export default function ApplyModal({
   onClose,
   setSuccess,
   job,
+  t,
 }: ApplyModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -40,7 +54,6 @@ export default function ApplyModal({
       resetFields();
       document.body.style.overflow = "";
     }
-
     return () => {
       document.body.style.overflow = "";
     };
@@ -54,24 +67,18 @@ export default function ApplyModal({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!name.trim() || !email.trim() || !profileUrl.trim()) {
-      toast.error("Por favor completa todos los campos.");
+      toast.error(t.errorIncomplete);
       return;
     }
-
     if (!isValidEmail(email)) {
-      toast.error("Ingresa un correo electrónico válido.");
+      toast.error(t.errorEmail);
       return;
     }
-
     if (!isValidProfileUrl(profileUrl)) {
-      toast.error(
-        "Ingresa un enlace válido de perfil profesional (LinkedIn, GitHub, etc)."
-      );
+      toast.error(t.errorProfile);
       return;
     }
-
     try {
       setLoading(true);
       const res = await fetch(API_URL_SEND_EMAIL, {
@@ -88,17 +95,13 @@ export default function ApplyModal({
           },
         }),
       });
-
       if (!res.ok) throw new Error("Error al enviar");
-
       resetFields();
-
       setSuccess(true);
-
       onClose();
     } catch (err) {
       console.error(err);
-      toast.error("Hubo un error al enviar tu solicitud.");
+      toast.error(t.failure);
     } finally {
       setLoading(false);
     }
@@ -127,7 +130,7 @@ export default function ApplyModal({
           ×
         </button>
         <h2 className="text-2xl font-bold text-accent-500 mb-4">
-          Aplica a la posición
+          {t.modalTitle}
         </h2>
 
         <form
@@ -138,21 +141,21 @@ export default function ApplyModal({
         >
           <input
             type="text"
-            placeholder="Nombre completo"
+            placeholder={t.namePlaceholder}
             className="w-full p-3 rounded-md border dark:bg-gray-800"
             value={name}
             onChange={(e) => setName(e.target.value)}
           />
           <input
             type="email"
-            placeholder="Correo electrónico"
+            placeholder={t.emailPlaceholder}
             className="w-full p-3 rounded-md border dark:bg-gray-800"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
             type="url"
-            placeholder="https://www.linkedin.com/in/usuario"
+            placeholder={t.profilePlaceholder}
             className="w-full p-3 rounded-md border dark:bg-gray-800"
             value={profileUrl}
             onChange={(e) => setProfileUrl(e.target.value)}
@@ -163,7 +166,7 @@ export default function ApplyModal({
             className="btn-primary w-full mt-4"
             disabled={loading}
           >
-            {loading ? "Enviando..." : "Enviar solicitud"}
+            {loading ? t.sending : t.submit}
           </button>
         </form>
       </motion.div>

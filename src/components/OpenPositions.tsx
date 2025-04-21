@@ -1,16 +1,38 @@
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ApplyModal from "./ApplyModal";
 import toast, { Toaster } from "react-hot-toast";
 import type { Vacante } from "../../seed/career";
 
-export default function OpenPositions({ data }: { data: Vacante[] }) {
+interface Props {
+  data: Vacante[];
+  apply: {
+    modalTitle: string;
+    namePlaceholder: string;
+    emailPlaceholder: string;
+    profilePlaceholder: string;
+    sending: string;
+    submit: string;
+    errorIncomplete: string;
+    errorEmail: string;
+    errorProfile: string;
+    success: string;
+    failure: string;
+  };
+  t: {
+    successToast: string;
+    applyNow: string;
+    defaultMode: string;
+  };
+}
+
+export default function OpenPositions({ data, t, apply }: Props) {
   const [success, setSuccess] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [job, setJob] = useState("");
 
   useEffect(() => {
     if (success) {
-      toast.success("¡Solicitud enviada con éxito!");
+      toast.success(t.successToast);
     }
   }, [success]);
 
@@ -27,7 +49,7 @@ export default function OpenPositions({ data }: { data: Vacante[] }) {
                 {item.titulo}
               </h3>
               <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                {item?.estado || "Presencial"}
+                {item?.estado || t.defaultMode}
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
@@ -51,7 +73,7 @@ export default function OpenPositions({ data }: { data: Vacante[] }) {
               }}
               className="btn-secondary"
             >
-              Aplicar Ahora
+              {t.applyNow}
             </button>
           </div>
         ))}
@@ -59,6 +81,7 @@ export default function OpenPositions({ data }: { data: Vacante[] }) {
 
       <ApplyModal
         job={job}
+        t={apply}
         isOpen={isOpen}
         setSuccess={setSuccess}
         onClose={() => setIsOpen(false)}
