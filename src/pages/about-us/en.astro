@@ -1,22 +1,26 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import HeroSection from "../components/HeroSection.astro";
-import { seed } from "../../seed/seed";
-import { fetchEquipo } from "../../seed/about-us";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import { getTranslation } from "../../i18n";
+import { fetchEquipo } from "../../../seed/about-us";
+import { seed } from "../../../seed/seed";
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 
 const equipo = await fetchEquipo();
 seed.aboutUs.liderTeam.data = equipo;
 ---
 
-<Layout title="Sobre Nosotros - TTN Company" >
-  <Header />
+<Layout title="About Us - TTN Company">
+  <Header t={t} />
   <main>
     <HeroSection
-      img={seed.aboutUs.heroSection.img}
-      title={seed.aboutUs.heroSection.title}
-      description={seed.aboutUs.heroSection.description}
+      img={t.aboutUs.heroSection.img}
+      title={t.aboutUs.heroSection.title}
+      description={t.aboutUs.heroSection.description}
     />
 
     <section
@@ -67,12 +71,8 @@ seed.aboutUs.liderTeam.data = equipo;
           <div class="grid md:grid-cols-3 gap-8">
             {
               seed.aboutUs.values.data.map((value) => (
-                <div
-                  class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02]"
-                >
-                  <div
-                    class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4"
-                  >
+                <div class="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in hover:scale-[1.02]">
+                  <div class="rounded-full bg-primary-100 dark:bg-primary-900 p-3 w-12 h-12 flex items-center justify-center mb-4">
                     <svg
                       class="w-6 h-6 text-primary-600 dark:text-primary-400"
                       fill="none"
@@ -85,19 +85,15 @@ seed.aboutUs.liderTeam.data = equipo;
                         stroke-linejoin="round"
                         stroke-width="2"
                         d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
-                      ></path>
+                      />
                     </svg>
                   </div>
-                  <h3
-                    class="text-xl font-semibold text-accent-500 dark:text-white mb-2"
-                  >
+                  <h3 class="text-xl font-semibold text-accent-500 dark:text-white mb-2">
                     {value.title}
                   </h3>
-                  <p class="text-gray-600">
-                    {value.description}
-                  </p>
+                  <p class="text-gray-600">{value.description}</p>
                 </div>
-              ))   
+              ))
             }
           </div>
         </div>
@@ -121,7 +117,6 @@ seed.aboutUs.liderTeam.data = equipo;
             {
               seed.aboutUs.liderTeam.data.map((item) => (
                 <div class="relative w-full h-72 bg-gradient-to-br from-accent-600 to-primary-500 text-white rounded-xl p-6 pt-20 flex flex-col justify-between items-center shadow-xl transition-transform duration-500 hover:scale-[1.08]">
-
                   <div class="absolute -top-14 w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-[0_0_10px_0px_rgba(0,0,0,0.1)] z-20">
                     <div class="w-24 h-24 rounded-full overflow-hidden border-white">
                       <img
@@ -131,38 +126,34 @@ seed.aboutUs.liderTeam.data = equipo;
                       />
                     </div>
                   </div>
-
-                  <!-- Contenido dentro de la tarjeta -->
-                  <h3 class="text-xl font-bold tracking-wide text-center uppercase z-10">{item.nombre}</h3>
-
+                  <h3 class="text-xl font-bold tracking-wide text-center uppercase z-10">
+                    {item.nombre}
+                  </h3>
                   <p class="text-sm text-center leading-relaxed font-light italic opacity-90 mt-2 z-10 px-2">
                     {item.descripcion}
                   </p>
-
-                  <p class="text-xs mt-2 tracking-widest font-semibold uppercase z-10">{item.cargo}</p>
+                  <p class="text-xs mt-2 tracking-widest font-semibold uppercase z-10">
+                    {item.cargo}
+                  </p>
                 </div>
-
               ))
             }
-
           </div>
         </div>
 
         <div class="text-center flex flex-col items-center gap-6 mb-10">
-          <h3
-            class="text-3xl font-semibold text-accent-500 dark:text-white"
-          >
-            Únete a nuestro equipo
+          <h3 class="text-3xl font-semibold text-accent-500 dark:text-white">
+            Join our team
           </h3>
-          <a href="/career" class="btn-primary">Ver vacantes abiertas</a>
+          <a href="/en/career" class="btn-primary">See open positions</a>
           <p class="text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-            Siempre buscamos personas con talento que compartan nuestra pasión
-            por la innovación y la excelencia. Consulta nuestras vacantes
-            actuales y únete a nuestra misión.
+            We’re always looking for talented individuals who share our passion
+            for innovation and excellence. Check our open roles and be part of
+            our mission.
           </p>
         </div>
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer t={t} />
 </Layout>

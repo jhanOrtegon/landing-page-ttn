@@ -4,10 +4,12 @@ import { seed } from "../../seed/seed";
 const { t } = Astro.props;
 
 const currentPath = Astro.url.pathname;
-const isEnglish = currentPath.startsWith("/en");
+const isEnglish = currentPath.endsWith("/en");
+
 const toggleUrl = isEnglish
-  ? currentPath.replace("/en", "") || "/"
-  : `/en${currentPath}`;
+  ? currentPath.replace(/\/en$/, "") || "/"
+  : `${currentPath.replace(/\/$/, "")}/en`;
+
 const flagEmoji = isEnglish ? "🇪🇸" : "🇺🇸";
 const altText = isEnglish ? "Cambiar a español" : "Switch to English";
 ---

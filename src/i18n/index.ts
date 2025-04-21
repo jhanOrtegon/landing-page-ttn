@@ -186,6 +186,15 @@ export const translations = {
       },
     },
 
+    aboutUs: {
+      heroSection: {
+        title: "Conócenos",
+        description:
+          "Somos una empresa comprometida con la innovación en salud.",
+        img: "/img/about-hero.jpg",
+      },
+    },
+
     footer: {
       description:
         "Modernizamos los procesos de clínicas y hospitales en todo el mundo a través del desarrollo de software y tecnología.",
@@ -230,10 +239,10 @@ export const translations = {
     header: {
       nav: [
         { text: "Home", url: "/en" },
-        { text: "About Us", url: "/en#about-us" },
-        { text: "Services", url: "/en#services" },
-        { text: "Products", url: "/en#products" },
-        { text: "Work With Us", url: "/en#career" },
+        { text: "About Us", url: "/about-us/en" },
+        { text: "Services", url: "/services/en" },
+        { text: "Products", url: "/products/en" },
+        { text: "Work With Us", url: "/career/en" },
       ],
       btn: {
         text: "Contact us",
@@ -412,6 +421,14 @@ export const translations = {
       },
     },
 
+    aboutUs: {
+      heroSection: {
+        title: "Get to know us",
+        description: "We are a company committed to healthcare innovation.",
+        img: "/img/about-hero.jpg",
+      },
+    },
+
     footer: {
       description:
         "We modernize the processes of clinics and hospitals around the world through software and technology development.",
@@ -461,7 +478,7 @@ export function setLangPreference(lang: "en" | "es") {
 export type Lang = keyof typeof translations;
 
 export function getLangFromPath(pathname: string): Lang {
-  return pathname.startsWith("/en") ? "en" : "es";
+  return pathname.endsWith("/en") || pathname.includes("/en/") ? "en" : "es";
 }
 
 export function getTranslation(pathname: string) {

@@ -5,16 +5,20 @@ import Footer from "../../components/Footer.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import { seed } from "../../../seed/seed";
 import { fetchProducts } from "../../../seed/products";
+import { getTranslation } from "../../i18n";
 
 const products = await fetchProducts();
 seed.products.data = products;
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <Layout
   title={seed.products.layout.title}
   description={seed.products.layout.description}
 >
-  <Header />
+  <Header t={t} />
   <main>
     <HeroSection
       img={seed.products.heroSection.img}
@@ -156,5 +160,5 @@ seed.products.data = products;
       </div>
     </section>
   </main>
+  <Footer t={t} />
 </Layout>
-<Footer />

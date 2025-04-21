@@ -4,13 +4,17 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
 import { seed } from "../../seed/seed";
+import { getTranslation } from "../i18n";
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <Layout
   title={seed.services.layout.title}
   description={seed.services.layout.description}
 >
-  <Header />
+  <Header t={t} />
   <main>
     <HeroSection
       img={seed.services.heroSection.img}
@@ -169,5 +173,5 @@ import { seed } from "../../seed/seed";
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer t={t} />
 </Layout>

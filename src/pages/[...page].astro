@@ -5,7 +5,6 @@ import Hero from "../components/Hero.astro";
 import Features from "../components/Features.astro";
 import CentralizarProcesos from "../components/CentralizarProcesos.astro";
 import Testimonials from "../components/Testimonials.astro";
-import Newsletter from "../components/Newsletter.astro";
 import Footer from "../components/Footer.astro";
 
 import { seed } from "../../seed/seed";
@@ -25,7 +24,6 @@ const t = getTranslation(pathname);
     <Features t={t} />
     <CentralizarProcesos t={t} />
     <Testimonials t={t} />
-    <!-- <Newsletter t={t} /> -->
   </main>
   <Footer t={t} />
 </Layout>

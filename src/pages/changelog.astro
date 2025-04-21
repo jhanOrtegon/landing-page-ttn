@@ -3,10 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+import { getTranslation } from "../i18n";
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <Layout title="Changelog - Sassify">
-  <Header />
+  <Header t={t} />
   <main>
     <HeroSection
       title="Product Changelog"
@@ -336,5 +339,5 @@ import HeroSection from "../components/HeroSection.astro";
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer t={t} />
 </Layout>
