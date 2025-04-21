@@ -1,35 +1,6 @@
 ---
+const { t } = Astro.props;
 const currentYear = new Date().getFullYear();
-
-const footerLinks = [
-  {
-    title: "Inicio",
-    link: "/",
-    links: [
-      { text: "Software a la medida", url: "#features" },
-      { text: "Centraliza los procesos", url: "#process-center" },
-      { text: "Historias de clientes", url: "#testimonials" },
-    ],
-  },
-  {
-    title: "Product",
-    links: [
-      { text: "Servicios", url: "/services" },
-      { text: "Pricing", url: "/pricing" },
-      { text: "FAQ", url: "/faqs" },
-      { text: "Changelog", url: "/changelog" },
-      { text: "Integrations", url: "/integrations" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { text: "Blog", url: "/blog" },
-      { text: "Case Studies", url: "/case-study" },
-      { text: "404 Page", url: "/404" },
-    ],
-  },
-];
 ---
 
 <footer class="bg-gray-900 text-white pt-16 pb-8">
@@ -42,11 +13,9 @@ const footerLinks = [
           >
         </a>
         <p class="text-gray-400 mb-6 max-w-md">
-          Modernizamos los procesos de clínicas y hospitales en todo el mundo a
-          través del desarrollo de software y tecnología
+          {t.footer.description}
         </p>
         <div class="flex space-x-4 items-center">
-          <!-- LinkedIn -->
           <a
             href="https://www.linkedin.com/company/ttn-company/"
             class="text-gray-400 hover:text-primary-400 transition-colors w-6 h-6 flex items-center justify-center"
@@ -65,8 +34,6 @@ const footerLinks = [
               ></path>
             </svg>
           </a>
-
-          <!-- Instagram -->
           <a
             href="https://www.instagram.com/ttncompany_col/"
             class="text-gray-400 hover:text-primary-400 transition-colors w-6 h-6 flex items-center justify-center"
@@ -89,13 +56,13 @@ const footerLinks = [
       </div>
 
       {
-        footerLinks.map((column) => (
+        t.footer.columns.map((column: any) => (
           <div>
             <a href={column.link}>
               <h3 class="text-lg font-semibold mb-4">{column.title}</h3>
             </a>
             <ul class="space-y-2">
-              {column.links.map((link) => (
+              {column.links.map((link: any) => (
                 <li>
                   <a
                     href={link.url}
@@ -114,27 +81,30 @@ const footerLinks = [
     <div class="border-t border-gray-800 pt-8 mt-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <p class="text-gray-400 text-sm mb-4 md:mb-0">
-          &copy; {currentYear} Ttn Company. Todos los derechos reservados.
+          &copy; {currentYear} Ttn Company. {t.footer.rights}
         </p>
         <div class="flex space-x-6">
           <a
             target="_blank"
-            href={"/politica_de_privacidad.pdf"}
+            href="/politica_de_privacidad.pdf"
             class="text-gray-400 hover:text-primary-400 text-sm transition-colors"
-            >Politica de privacidad</a
           >
+            {t.footer.legal.privacy}
+          </a>
           <a
             target="_blank"
-            href={"#"}
+            href="#"
             class="text-gray-400 hover:text-primary-400 text-sm transition-colors"
-            >Terminos de servicio</a
           >
+            {t.footer.legal.terms}
+          </a>
           <a
             target="_blank"
-            href={""}
+            href="#"
             class="text-gray-400 hover:text-primary-400 text-sm transition-colors"
-            >Politica de cookies</a
           >
+            {t.footer.legal.cookies}
+          </a>
         </div>
       </div>
     </div>

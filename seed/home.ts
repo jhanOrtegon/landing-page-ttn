@@ -92,6 +92,7 @@ export const home = {
   },
 
   proccess: {
+    title: "Centraliza todos los procesos de tu empresa",
     data: [
       {
         title: "Contabilidad",

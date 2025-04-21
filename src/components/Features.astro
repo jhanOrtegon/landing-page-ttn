@@ -1,12 +1,12 @@
 ---
-import { seed } from "../../seed/seed";
+const { t } = Astro.props;
 ---
 
 <section id="features" class="section bg-gray-50 dark:bg-gray-800/50">
   <div class="container-custom px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
     <!-- Introducción -->
     {
-      seed.home.features.articles.map((article) => (
+      t.features.articles.map((article: any) => (
         <div class="text-center max-w-3xl mx-auto mb-16 px-4">
           <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4">
             {article.badge}
@@ -22,46 +22,47 @@ import { seed } from "../../seed/seed";
     <!-- Grid de features -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 px-2">
       {
-        seed.home.features.data.map((feature, index) => {
-          return (
+        t.features.data.map((feature: any, index: number) => (
+          <div
+            class={`card p-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/30 shadow-sm hover:shadow-md transition-all hover:scale-[1.02] duration-300 animate-fade-in`}
+            style={`animation-delay: ${index * 100}ms`}
+          >
             <div
-              class={`card p-6 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900/30 shadow-sm hover:shadow-md transition-all hover:scale-[1.02] duration-300 animate-fade-in`}
-              style={`animation-delay: ${index * 100}ms`}
+              class={`w-12 h-12 rounded-lg bg-${feature.color}-50 dark:bg-${feature.color}-900/30 flex items-center justify-center mb-6`}
             >
-              <div
-                class={`w-12 h-12 rounded-lg bg-${feature.color}-50 dark:bg-${feature.color}-900/30 flex items-center justify-center mb-6`}
+              <svg
+                class={`w-6 h-6 text-${feature.color}-600 dark:text-${feature.color}-400`}
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <svg
-                  class={`w-6 h-6 text-${feature.color}-600 dark:text-${feature.color}-400`}
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d={feature.icon}
-                  />
-                </svg>
-              </div>
-              <h3 class="text-xl font-semibold mb-3 text-accent-500 dark:text-white">
-                {feature.title}
-              </h3>
-              <p class="text-gray-600 dark:text-gray-300 text-base">
-                {feature.description}
-              </p>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d={feature.icon}
+                />
+              </svg>
             </div>
-          );
-        })
+            <h3 class="text-xl font-semibold mb-3 text-accent-500 dark:text-white">
+              {feature.title}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300 text-base">
+              {feature.description}
+            </p>
+          </div>
+        ))
       }
     </div>
 
     <!-- CTA -->
     <div class="mt-16 text-center">
-      <a href="/services" class="btn-primary inline-flex items-center gap-2">
-        Nuestros servicios
+      <a
+        href={t.features.ctaUrl}
+        class="btn-primary inline-flex items-center gap-2"
+      >
+        {t.features.ctaText}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-5 w-5"
@@ -78,7 +79,7 @@ import { seed } from "../../seed/seed";
 
     <!-- Sección extra -->
     {
-      seed.home.features.extraArticle.map((article) => (
+      t.features.extraArticle.map((article: any) => (
         <div class="flex flex-col lg:flex-row gap-8 mt-28 rounded-lg bg-white dark:bg-gray-800 p-6 shadow-[0_0_50px_-10px] dark:shadow-[0_0_50px_-10px] shadow-primary-100/30">
           <img
             src={article.image}
