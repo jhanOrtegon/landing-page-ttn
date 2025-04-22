@@ -151,7 +151,9 @@ const t = getTranslation(pathname);
               src={product.tercer_bloque.url_imagen}
             />
           </div>
-          <div class="grid grid-cols-2 gap-12 w-full justify-center">
+          <div
+            class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 w-full justify-center"
+          >
             {
               product.tercer_bloque.carasteristicas.map((item) => (
                 <div class="flex items-center bg-white drop-shadow-xl px-6 py-4 rounded-md gap-x-4">
