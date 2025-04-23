@@ -572,7 +572,7 @@ export const translations = {
       ],
 
       ctaText: "Our services",
-      ctaUrl: "/en/services",
+      ctaUrl: "/services/en",
     },
 
     process: {
