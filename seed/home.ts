@@ -42,7 +42,7 @@ export const home = {
         initialDescription: "TTN Company fue creada por la",
         strongDescription: "Clínica Oftalmológica del Caribe",
         finalDescription:
-          ", un referente en toda Latinoamérica que nos brinda un entendimiento profundo de las necesidades de las empresas de salud, y también ofrece su apoyo conjunto, funcionando como un avanzado laboratorio de pruebas para nuestra tecnología.",
+          ",un referente en toda Latinoamérica que nos brinda un entendimiento profundo de las necesidades de las empresas de salud, y también ofrece su apoyo conjunto, funcionando como un avanzado laboratorio de pruebas para nuestra tecnología.",
       },
     ],
     data: [

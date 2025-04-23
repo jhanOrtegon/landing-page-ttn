@@ -46,7 +46,7 @@ export const translations = {
           initialDescription: "TTN Company fue creada por la",
           strongDescription: "Clínica Oftalmológica del Caribe",
           finalDescription:
-            ", un referente en toda Latinoamérica que nos brinda un entendimiento profundo de las necesidades de las empresas de salud, y también ofrece su apoyo conjunto, funcionando como un avanzado laboratorio de pruebas para nuestra tecnología.",
+            ",un referente en toda Latinoamérica que nos brinda un entendimiento profundo de las necesidades de las empresas de salud, y también ofrece su apoyo conjunto, funcionando como un avanzado laboratorio de pruebas para nuestra tecnología.",
         },
       ],
       data: [
@@ -446,35 +446,28 @@ export const translations = {
     footer: {
       description:
         "Modernizamos los procesos de clínicas y hospitales en todo el mundo a través del desarrollo de software y tecnología.",
-      columns: [
-        {
-          title: "Inicio",
-          link: "/",
-          links: [
-            { text: "Software a la medida", url: "#features" },
-            { text: "Centraliza los procesos", url: "#process-center" },
-            { text: "Historias de clientes", url: "#testimonials" },
-          ],
-        },
-        {
-          title: "Producto",
-          links: [
-            { text: "Servicios", url: "/services" },
-            { text: "Precios", url: "/pricing" },
-            { text: "Preguntas frecuentes", url: "/faqs" },
-            { text: "Historial de cambios", url: "/changelog" },
-            { text: "Integraciones", url: "/integrations" },
-          ],
-        },
-        {
-          title: "Recursos",
-          links: [
-            { text: "Blog", url: "/blog" },
-            { text: "Casos de éxito", url: "/case-study" },
-            { text: "Página 404", url: "/404" },
-          ],
-        },
-      ],
+      columns: [],
+      // columns: [
+      //   {
+      //     title: "Inicio",
+      //     link: "/",
+      //     links: [
+      //       { text: "Software a la medida", url: "#features" },
+      //       { text: "Centraliza los procesos", url: "#process-center" },
+      //       { text: "Historias de clientes", url: "#testimonials" },
+      //     ],
+      //   },
+      //   {
+      //     title: "Producto",
+      //     links: [
+      //       { text: "Servicios", url: "/services" },
+      //       { text: "Precios", url: "/pricing" },
+      //       { text: "Preguntas frecuentes", url: "/faqs" },
+      //       { text: "Historial de cambios", url: "/changelog" },
+      //       { text: "Integraciones", url: "/integrations" },
+      //     ],
+      //   },
+      // ],
       rights: "Todos los derechos reservados.",
       legal: {
         privacy: "Política de privacidad",
@@ -930,35 +923,36 @@ export const translations = {
     footer: {
       description:
         "We modernize the processes of clinics and hospitals around the world through software and technology development.",
-      columns: [
-        {
-          title: "Home",
-          link: "/en",
-          links: [
-            { text: "Custom Software", url: "/en#features" },
-            { text: "Centralize Processes", url: "/en#process-center" },
-            { text: "Customer Stories", url: "/en#testimonials" },
-          ],
-        },
-        {
-          title: "Product",
-          links: [
-            { text: "Services", url: "/en/services" },
-            { text: "Pricing", url: "/en/pricing" },
-            { text: "FAQ", url: "/en/faqs" },
-            { text: "Changelog", url: "/en/changelog" },
-            { text: "Integrations", url: "/en/integrations" },
-          ],
-        },
-        {
-          title: "Resources",
-          links: [
-            { text: "Blog", url: "/en/blog" },
-            { text: "Case Studies", url: "/en/case-study" },
-            { text: "404 Page", url: "/en/404" },
-          ],
-        },
-      ],
+      columns: [],
+      // columns: [
+      //   {
+      //     title: "Home",
+      //     link: "/en",
+      //     links: [
+      //       { text: "Custom Software", url: "/en#features" },
+      //       { text: "Centralize Processes", url: "/en#process-center" },
+      //       { text: "Customer Stories", url: "/en#testimonials" },
+      //     ],
+      //   },
+      //   {
+      //     title: "Product",
+      //     links: [
+      //       { text: "Services", url: "/en/services" },
+      //       { text: "Pricing", url: "/en/pricing" },
+      //       { text: "FAQ", url: "/en/faqs" },
+      //       { text: "Changelog", url: "/en/changelog" },
+      //       { text: "Integrations", url: "/en/integrations" },
+      //     ],
+      //   },
+      //   {
+      //     title: "Resources",
+      //     links: [
+      //       { text: "Blog", url: "/en/blog" },
+      //       { text: "Case Studies", url: "/en/case-study" },
+      //       { text: "404 Page", url: "/en/404" },
+      //     ],
+      //   },
+      // ],
       rights: "All rights reserved.",
       legal: {
         privacy: "Privacy Policy",
