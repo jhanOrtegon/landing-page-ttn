@@ -54,9 +54,6 @@ const altText = isEnglish ? "Cambiar a español" : "Switch to English";
     <!-- Mobile section -->
     <div class="flex items-center space-x-2 md:hidden">
       <!-- Mobile Contact Button -->
-      <a href={t.header.btn.url} class="btn-primary">
-        {t.header.btn.text}
-      </a>
 
       <!-- Language Flag Toggle (Mobile) -->
       <a
@@ -126,6 +123,13 @@ const altText = isEnglish ? "Cambiar a español" : "Switch to English";
               </a>
             ))
           }
+
+          <a
+            href={t.header.btn.url}
+            class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800"
+          >
+            {t.header.btn.text}
+          </a>
 
           <a
             href={toggleUrl}

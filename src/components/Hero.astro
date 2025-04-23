@@ -20,7 +20,7 @@ const { t } = Astro.props;
           {t.hero.description}
         </p>
 
-        <div class="flex flex-wrap gap-4">
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
           <a href={t.hero.ctaUrl} class="btn-primary">
             {t.hero.ctaText}
             <svg
@@ -43,7 +43,7 @@ const { t } = Astro.props;
           <img
             src="/biowel.png"
             alt="Sistema FOCA"
-            class="min-h-[350px] drop-shadow-xl animate-float"
+            class="drop-shadow-xl animate-float"
           />
         </div>
       </div>
@@ -51,7 +51,7 @@ const { t } = Astro.props;
   </div>
 
   <div
-    class="mt-28 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 relative overflow-hidden"
+    class="mt-10 md:mt-28 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 relative overflow-hidden"
   >
     <div
       class="absolute inset-0 bg-gradient-to-r from-primary-600/30 to-secondary-600/30 backdrop-blur-sm"

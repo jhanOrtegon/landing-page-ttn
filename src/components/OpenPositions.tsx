@@ -44,7 +44,7 @@ export default function OpenPositions({ data, t, apply }: Props) {
             key={item.id}
             className="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in"
           >
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+            <div className="flex flex-row items-center justify-between mb-4 flex-wrap">
               <h3 className="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0">
                 {item.titulo}
               </h3>
