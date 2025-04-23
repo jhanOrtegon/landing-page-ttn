@@ -34,7 +34,6 @@ export interface ProductoDetalle {
   cuarto_bloque: BloqueConTabs;
   quinto_bloque: BloqueConTabs;
   preguntas: Preguntas;
-  apoyo: Apoyo;
 }
 
 export interface Banner {

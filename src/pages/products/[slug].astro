@@ -183,9 +183,9 @@ const t = getTranslation(pathname);
 
       <!-- Gestión y Finanzas -->
       <div data-tab="cuarto_bloque">
-        <div class="flex flex-col my-32 mb-28">
+        <div class="flex flex-col my-28">
           <!-- Gestión -->
-          <div class="flex flex-col items-center text-center mt-32">
+          <div class="flex flex-col items-center text-center mt-8">
             <span
               class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
             >
@@ -369,7 +369,7 @@ const t = getTranslation(pathname);
               </h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 my-10 w-full">
               {
                 product.preguntas.tabs.map((faq) => (
                   <div class="border rounded-md shadow-sm faq-content-height">
@@ -401,35 +401,6 @@ const t = getTranslation(pathname);
                     >
                       <div class="py-4">{faq.texto}</div>
                     </div>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-
-          <!-- Patrocinadores -->
-          <div class="flex flex-col items-center text-center mt-10">
-            <div>
-              <span
-                class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
-              >
-                {product.apoyo.categoria}
-              </span>
-              <!-- <h3 class="text-lg text-gray-600 font-bold">Aplicaciones</h3> -->
-              <h2 class="text-4xl text-accent-500 font-bold">
-                {product.apoyo.nombre}
-              </h2>
-            </div>
-
-            <div class="flex gap-10 my-20 mt-2 items-center justify-around">
-              {
-                product.apoyo.urls.map((el) => (
-                  <div class="max-w-md max-h-md">
-                    <img
-                      src={el}
-                      alt={product.apoyo.nombre}
-                      class="rounded-lg shadow-[0_0_50px_0px_rgba(0,0,0,0.1)]"
-                    />
                   </div>
                 ))
               }
