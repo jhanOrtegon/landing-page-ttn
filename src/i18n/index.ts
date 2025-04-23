@@ -18,7 +18,7 @@ export const translations = {
 
     hero: {
       highlight: "Tecnología",
-      typewriter: "Transformando el sector de la salud",
+      typewriter: "transformando el sector de la salud",
       description:
         "Modernizamos los procesos de clínicas y hospitales en todo el mundo",
       ctaText: "Conoce más",
@@ -155,27 +155,27 @@ export const translations = {
       data: [
         {
           content:
-            "Esta plataforma ha transformado por completo la forma en que gestionamos nuestros proyectos. Su interfaz intuitiva y potentes funciones aumentaron nuestra productividad en más de un 40%.",
-          author: "Sarah Johnson",
+            "la familia Escaf para ser los primeros partners internacionales en instalar este software que integra todas las funciones clínicas y administrativas para una clínica oftalmológica, para así mejorar la eficiencia de nuestros procesos y con eso mejorar la satisfacción de nuestros pacientes. Hemos completado la primera etapa del ciclo asistencial y buzón de sugerencias digital y ya empezamos a optimizar la atención a los pacientes, con resultados positivos inmediatos.",
+          author: "jbatlle84",
           position: "Gerente de Producto",
           company: "TechCorp",
-          avatar: "https://randomuser.me/api/portraits/women/32.jpg",
+          avatar: "https://randomuser.me/api/portraits/men/46.jpg",
         },
         {
           content:
-            "He probado muchas soluciones SaaS, pero esta destaca por su facilidad de uso y su conjunto de funciones tan completo. Además, el soporte al cliente es excepcional.",
-          author: "Michael Chen",
+            "Estamos sumamente agradecidos por su apoyo en la transformación digital de los procesos en @centrolaserrd Esto significa para nosotros el pasar a una nueva era de eficiencia en el trabajo y mejor comunicación entre los miembros del equipo. Para los administradores, contabilidad y medidas de rendimiento en tiempo real, el cual nos permite analizar con más facilidad el desempeño del equipo y planificar nuestras inversiones futuras para el crecimiento de la empresa.",
+          author: "jbatlle84",
           position: "CTO",
           company: "Innovate Inc.",
           avatar: "https://randomuser.me/api/portraits/men/46.jpg",
         },
         {
           content:
-            "Solo las capacidades de análisis ya valen la inversión. Hemos obtenido información valiosa que nos ha permitido optimizar operaciones y reducir costos.",
-          author: "Emily Rodriguez",
-          position: "Directora de Operaciones",
-          company: "Global Solutions",
-          avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+            "Estamos sumamente agradecidos por su apoyo en la transformación digital de los procesos en @centrolaserrd Esto significa para nosotros el pasar a una nueva era de eficiencia en el trabajo y mejor comunicación entre los miembros del equipo. Para los administradores, contabilidad y medidas de rendimiento en tiempo real, el cual nos permite analizar con más facilidad el desempeño del equipo y planificar nuestras inversiones futuras para el crecimiento de la empresa.",
+          author: "jbatlle84",
+          position: "CTO",
+          company: "Innovate Inc.",
+          avatar: "https://randomuser.me/api/portraits/men/46.jpg",
         },
       ],
       cta: {
@@ -494,7 +494,7 @@ export const translations = {
 
     hero: {
       highlight: "Technology",
-      typewriter: "Transforming the healthcare industry",
+      typewriter: "transforming the healthcare industry",
       description: "We modernize clinic and hospital processes worldwide",
       ctaText: "Learn more",
       ctaUrl: "/contact/en",
@@ -632,27 +632,27 @@ export const translations = {
       data: [
         {
           content:
-            "This platform has completely transformed the way we manage our projects. Its intuitive interface and powerful features boosted our productivity by over 40%.",
-          author: "Sarah Johnson",
+            "The Escaf family became the first international partners to implement this software, which integrates all clinical and administrative functions for an ophthalmology clinic, aiming to improve the efficiency of our processes and thereby enhance patient satisfaction. We have completed the first stage of the care cycle and the digital suggestion box, and we have already begun optimizing patient care with immediate positive results.",
+          author: "jbatlle84",
           position: "Product Manager",
           company: "TechCorp",
-          avatar: "https://randomuser.me/api/portraits/women/32.jpg",
+          avatar: "https://randomuser.me/api/portraits/men/46.jpg",
         },
         {
           content:
-            "I’ve tried many SaaS solutions, but this one stands out for its ease of use and comprehensive feature set. Plus, the customer support is outstanding.",
-          author: "Michael Chen",
+            "We are extremely grateful for your support in the digital transformation of processes at @centrolaserrd. This marks the beginning of a new era of work efficiency and better communication among team members. For administrators, accounting, and real-time performance metrics, it allows us to more easily analyze team performance and plan future investments for the company’s growth.",
+          author: "jbatlle84",
           position: "CTO",
           company: "Innovate Inc.",
           avatar: "https://randomuser.me/api/portraits/men/46.jpg",
         },
         {
           content:
-            "The analytics capabilities alone are worth the investment. We’ve gained valuable insights that helped us optimize operations and reduce costs.",
-          author: "Emily Rodriguez",
-          position: "Director of Operations",
-          company: "Global Solutions",
-          avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+            "We are extremely grateful for your support in the digital transformation of processes at @centrolaserrd. This marks the beginning of a new era of work efficiency and better communication among team members. For administrators, accounting, and real-time performance metrics, it allows us to more easily analyze team performance and plan future investments for the company’s growth.",
+          author: "jbatlle84",
+          position: "CTO",
+          company: "Innovate Inc.",
+          avatar: "https://randomuser.me/api/portraits/men/46.jpg",
         },
       ],
       cta: {
