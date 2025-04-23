@@ -72,7 +72,7 @@ export default function ContactSection({ t }: any) {
                     {t.emailLabel}
                   </h3>
                   <p className="text-accent-500 dark:text-gray-300">
-                    administracion@ttncompany.com
+                    gerencia@ttncompany.com
                   </p>
                 </div>
               </div>
