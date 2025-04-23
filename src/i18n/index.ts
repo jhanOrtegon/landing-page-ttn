@@ -44,9 +44,9 @@ export const translations = {
             "https://img.freepik.com/foto-gratis/persona-que-trabaja-tarde-noche-casa_23-2150062723.jpg",
           badge: "Te entendemos mejor que nadie",
           initialDescription: "TTN Company fue creada por la",
-          strongDescription: "Clínica Oftalmológica del Caribe",
+          strongDescription: "Clínica Oftalmológica del Caribe,",
           finalDescription:
-            ",un referente en toda Latinoamérica que nos brinda un entendimiento profundo de las necesidades de las empresas de salud, y también ofrece su apoyo conjunto, funcionando como un avanzado laboratorio de pruebas para nuestra tecnología.",
+            "un referente en toda Latinoamérica que nos brinda un entendimiento profundo de las necesidades de las empresas de salud, y también ofrece su apoyo conjunto, funcionando como un avanzado laboratorio de pruebas para nuestra tecnología.",
         },
       ],
       data: [
@@ -520,9 +520,9 @@ export const translations = {
             "https://img.freepik.com/foto-gratis/persona-que-trabaja-tarde-noche-casa_23-2150062723.jpg",
           badge: "We understand you better than anyone",
           initialDescription: "TTN Company was created by the ",
-          strongDescription: "Clínica Oftalmológica del Caribe",
+          strongDescription: "Clínica Oftalmológica del Caribe, ",
           finalDescription:
-            ", a benchmark across Latin America that gives us deep insight into the needs of healthcare companies, and also offers its joint support, serving as an advanced testing lab for our technology.",
+            "a benchmark across Latin America that gives us deep insight into the needs of healthcare companies, and also offers its joint support, serving as an advanced testing lab for our technology.",
         },
       ],
 
