@@ -6,9 +6,10 @@ import HeroSection from "../../components/HeroSection.astro";
 import { fetchProducts } from "../../../seed/products";
 import { getTranslation } from "../../i18n";
 
-const products = await fetchProducts();
-
 const pathname = Astro.url.pathname;
+const lang = pathname.includes("/en") ? "EN" : "ES";
+const products = await fetchProducts(lang);
+
 const t = getTranslation(pathname);
 const translated = {
   ...t,

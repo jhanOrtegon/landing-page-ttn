@@ -2,6 +2,7 @@ import { API_URL } from "../lib/constant";
 
 export type Vacante = {
   id: string;
+  lang: "ES" | "EN";
   titulo: string;
   descripcion: string;
   salario: string;
@@ -16,9 +17,11 @@ export interface VacantesResponse {
   data: Vacante[];
 }
 
-export const fetchVacantes = async (): Promise<Vacante[]> => {
+export const fetchVacantes = async (
+  lang: "ES" | "EN" = "ES"
+): Promise<Vacante[]> => {
   try {
-    const response = await fetch(`${API_URL}/vacantes`);
+    const response = await fetch(`${API_URL}/vacantes?lang=${lang}`);
 
     if (!response.ok) {
       throw new Error(`Error HTTP ${response.status}: ${response.statusText}`);
@@ -30,7 +33,7 @@ export const fetchVacantes = async (): Promise<Vacante[]> => {
       throw new Error("La respuesta no contiene un array válido en 'data'");
     }
 
-    return result.data;
+    return result.data.filter((item) => item.lang === lang);
   } catch (error) {
     console.error("❌ Error en fetchVacancies:", error);
     return [];

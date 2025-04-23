@@ -9,7 +9,8 @@ import { fetchVacantes } from "../../../seed/career";
 import { getTranslation } from "../../i18n";
 
 const pathname = Astro.url.pathname;
-const vacantes = await fetchVacantes();
+const lang = pathname.includes("/en") ? "EN" : "ES";
+const vacantes = await fetchVacantes(lang);
 
 const translated = {
   ...getTranslation(pathname),

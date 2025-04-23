@@ -7,7 +7,8 @@ import { fetchEquipo } from "../../../seed/about-us";
 import { getTranslation } from "../../i18n";
 
 const pathname = Astro.url.pathname;
-const equipo = await fetchEquipo();
+const lang = pathname.includes("/en") ? "EN" : "ES";
+const equipo = await fetchEquipo(lang);
 
 const translated = {
   ...getTranslation(pathname),
