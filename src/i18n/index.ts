@@ -682,7 +682,7 @@ export const translations = {
         image: "/innovacion.jpg",
         imageAlt: "Team",
         initialDescription:
-          "Founded in 2020 with the support of the Caribbean Ophthalmology Clinic, TTN Company was born with a clear vision: to develop innovative technological solutions that meet the real needs of the healthcare sector. What began as a startup driven by an ambitious idea is now emerging as a key player in the digital transformation of clinical services.",
+          "Founded in 2020 with the support of the Clínica Oftalmológica del Caribe, TTN Company was born with a clear vision: to develop innovative technological solutions that meet the real needs of the healthcare sector. What began as a startup driven by an ambitious idea is now emerging as a key player in the digital transformation of clinical services.",
         endDescription:
           "Our journey has been full of learning, but our commitment to innovation, quality, and impact on medical care has remained strong. We are proud to see how our solutions have helped optimize processes, facilitate the work of healthcare professionals, and improve the patient experience.",
       },
@@ -778,7 +778,7 @@ export const translations = {
         },
         {
           slug: "biowel-asistencial",
-          name: "Biowel Care",
+          name: "Biowel Asistencial",
           descripcion:
             "A platform specialized in managing healthcare services, streamlining appointment scheduling, medical orders, and patient follow-up.",
           imagen:
