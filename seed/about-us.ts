@@ -32,7 +32,7 @@ export const fetchEquipo = async (
     if (!Array.isArray(result.data)) {
       throw new Error("La respuesta no contiene un array válido en 'data'");
     }
-    console.log(lang, "xxxxxxx");
+
     return result.data.filter((item) => item.lang === lang);
   } catch (error) {
     console.error("❌ Error en fetchEquipo:", error);
