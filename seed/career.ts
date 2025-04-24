@@ -8,7 +8,7 @@ export type Vacante = {
   salario: string;
   ubicacion: string;
   estado_id: string;
-  estado: string;
+  modalidad: string;
   tecnologias: string[];
 };
 

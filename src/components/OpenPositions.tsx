@@ -45,9 +45,14 @@ export default function OpenPositions({ data, t, apply }: Props) {
             className="card p-6 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300 animate-fade-in"
           >
             <div className="flex flex-row items-center justify-between mb-4 flex-wrap">
-              <h3 className="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0">
-                {item.titulo}
-              </h3>
+              <div>
+                <h3 className="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0">
+                  {item.titulo}
+                </h3>
+                <div className="inline-block  py-1 text-xs font-medium rounded-full  text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                  <strong>$ Salario:</strong> {item?.salario}
+                </div>
+              </div>
               <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
                 {item?.estado || t.defaultMode}
               </span>

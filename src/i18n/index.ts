@@ -155,7 +155,7 @@ export const translations = {
       data: [
         {
           content:
-            "la familia Escaf para ser los primeros partners internacionales en instalar este software que integra todas las funciones clínicas y administrativas para una clínica oftalmológica, para así mejorar la eficiencia de nuestros procesos y con eso mejorar la satisfacción de nuestros pacientes. Hemos completado la primera etapa del ciclo asistencial y buzón de sugerencias digital y ya empezamos a optimizar la atención a los pacientes, con resultados positivos inmediatos.",
+            "En Republica Dominicana la clínica de la familia Batlle, @centrolaserrd, estamos colaborando con @ttncompany_col y la familia Escaf para ser los primeros partners internacionales en instalar este software que integra todas las funciones clínicas y administrativas para una clínica oftalmológica, para así mejorar la eficiencia de nuestros procesos y con eso mejorar la satisfacción de nuestros pacientes. Hemos completado la primera etapa del ciclo asistencial y buzón de sugerencias digital y ya empezamos a optimizar la atención a los pacientes, con resultados positivos inmediatos.",
           author: "Juan Francisco Battle",
           position: "CEO",
           company: "Centro Láser en Santo Domingo",
@@ -635,7 +635,7 @@ export const translations = {
       data: [
         {
           content:
-            "The Escaf family has become the first international partners to implement this software, which integrates all clinical and administrative functions for an ophthalmology clinic. This allows us to improve the efficiency of our processes and, in turn, enhance patient satisfaction. We’ve completed the first stage of the care cycle and the digital suggestion box, and have already started optimizing patient care, with immediate positive results.",
+            "In the Dominican Republic, the Batlle family clinic, @centrolaserrd, is collaborating with @ttncompany_col and the Escaf family to become the first international partners to install this software, which integrates all clinical and administrative functions for an ophthalmology clinic. This will improve the efficiency of our processes and, consequently, enhance patient satisfaction. We have completed the first stage of the care cycle and digital suggestion box and are already beginning to optimize patient care, with immediate positive results.",
           author: "Juan Francisco Batlle",
           position: "CEO",
           company: "Centro Láser in Santo Domingo",
