@@ -4,9 +4,20 @@ import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import HeroSection from "../../components/HeroSection.astro";
 import { getTranslation } from "../../i18n";
+import { fetchProducts } from "../../../seed/products";
 
 const pathname = Astro.url.pathname;
+const lang = pathname.includes("/en") ? "EN" : "ES";
+const products = await fetchProducts(lang);
+
 const t = getTranslation(pathname);
+const translated = {
+  ...t,
+  products: {
+    ...t.products,
+    data: products,
+  },
+};
 ---
 
 <Layout
@@ -28,7 +39,7 @@ const t = getTranslation(pathname);
         <h2
           class="text-4xl md:text-5xl font-extrabold text-accent-500 dark:text-white text-center mb-20"
         >
-          Services and Solutions
+          Servicios y soluciones
         </h2>
 
         <!-- Aquí puedes reutilizar los mismos bloques del archivo original si están estáticos o crear traducciones con t si están en i18n -->
@@ -39,26 +50,26 @@ const t = getTranslation(pathname);
             <h2
               class="text-3xl font-bold text-center text-accent-500 dark:text-white mb-12"
             >
-              Learn more about our products
+              Conoce un poco más de nuestros productos
             </h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-16">
               {
-                t.services.data.map((servicio) => (
+                translated.products.data.map((servicio: any, index: number) => (
                   <a
                     class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden transform hover:-translate-y-2 hover:shadow-2xl transition duration-500 cursor-pointer"
                     href={`/products/${servicio.slug}`}
                   >
                     <img
-                      src={servicio.imagen}
-                      alt={servicio.alt}
-                      class="w-full h-48 object-cover"
+                      alt={servicio.nombre}
+                      src={servicio.imagen_nombre_principal}
+                      class="w-full h-48 object-contain p-5"
                     />
                     <div class="p-6 text-left">
                       <h3 class="text-xl font-semibold text-accent-500 dark:text-white mb-2">
-                        {servicio.name}
+                        {servicio.nombre}
                       </h3>
                       <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                        {servicio.descripcion}
+                        {servicio.descripción}
                       </p>
                     </div>
                   </a>
