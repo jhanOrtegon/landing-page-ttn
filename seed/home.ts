@@ -139,7 +139,7 @@ export const home = {
         content:
           "He probado muchas soluciones SaaS, pero esta destaca por su facilidad de uso y su conjunto de funciones tan completo. Además, el soporte al cliente es excepcional.",
         author: "Michael Chen",
-        position: "CTO",
+        position: "CEO",
         company: "Innovate Inc.",
         avatar: "https://randomuser.me/api/portraits/men/46.jpg",
       },

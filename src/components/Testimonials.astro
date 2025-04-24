@@ -22,7 +22,7 @@ const { t } = Astro.props;
       {
         t.testimonials.data.map((testimonial: any, index: number) => (
           <div
-            class="card p-6 border border-gray-200 dark:border-gray-700 slide-up"
+            class="card p-6 border border-gray-200 dark:border-gray-700 slide-up flex flex-col "
             style={`animation-delay: ${index * 150}ms`}
           >
             <div class="mb-6">
@@ -42,7 +42,7 @@ const { t } = Astro.props;
               "{testimonial.content}"
             </blockquote>
 
-            <div class="flex items-center">
+            <div class="flex items-center mt-auto">
               <img
                 src={testimonial.avatar}
                 alt={testimonial.author}
