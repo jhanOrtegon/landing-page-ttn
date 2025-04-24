@@ -184,7 +184,7 @@ export const translations = {
       cta: {
         title: "¿Listo para transformar tu negocio?",
         description:
-          "Únase a miles de clientes satisfechos que han mejorado su flujo de trabajo con nuestra plataforma.",
+          "Únete a nuestros satisfechos que han mejorado su flujo de trabajo con nuestra plataforma.",
         button: "Empieza hoy",
       },
     },
@@ -231,7 +231,7 @@ export const translations = {
       },
       liderTeam: {
         badge: "Equipo de Liderazgo",
-        title: "Conozca a nuestros líderes",
+        title: "Conoce a nuestros líderes",
         description:
           "Nuestro diverso equipo de líderes aporta una amplia experiencia y una pasión compartida por la innovación.",
         data: [], // se completará dinámicamente
@@ -394,7 +394,7 @@ export const translations = {
       heroSection: {
         title: "Contacta con nosotros",
         description:
-          "Estamos aquí para ayudarle con cualquier pregunta que puedas tener sobre nuestros servicios.",
+          "Estamos aquí para ayudarte con cualquier pregunta que puedas tener sobre nuestros servicios.",
       },
       contactSection: {
         sectionTitle: "Nos encantaría saber más sobre ti",
