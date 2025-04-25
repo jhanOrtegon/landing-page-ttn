@@ -1,5 +1,5 @@
 ---
-
+const { t } = Astro.props;
 ---
 
 <section
@@ -9,18 +9,20 @@
     <div class="grid md:grid-cols-2 gap-12 items-center">
       <div class="slide-up" transition:animate="slide">
         <h1 class="mb-6 text-secondary-900 dark:text-white leading-tight">
-          <span class="text-accent-500">Tecnología</span>
-          <br />
+          <span class="text-accent-500">{t.hero.highlight}</span><br />
           <span
             class="text-primary-500 dark:text-primary-400"
-            id="typewriter-text"></span>
+            id="typewriter-text"
+            data-typed-text={t.hero.typewriter}></span>
         </h1>
+
         <p class="text-xl text-gray-600 dark:text-secondary-300 mb-8 max-w-lg">
-          Modernizamos los procesos de clínicas y hospitales en todo el mundo
+          {t.hero.description}
         </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="/contact" class="btn-primary"
-            >Conoce más
+
+        <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+          <a href={t.hero.ctaUrl} class="btn-primary">
+            {t.hero.ctaText}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               class="h-5 w-5 ml-2"
@@ -37,22 +39,19 @@
       </div>
 
       <div class="relative fade-in">
-        <!-- Imagen flotante -->
         <div class="relative w-full mx-auto z-10">
           <img
             src="/biowel.png"
             alt="Sistema FOCA"
-            class="min-h-[350px] drop-shadow-xl animate-float"
+            class="drop-shadow-xl animate-float"
           />
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Teal section at the bottom with Trusted By -->
-
   <div
-    class="mt-28 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 relative overflow-hidden"
+    class="mt-10 md:mt-28 bg-gradient-to-r from-primary-500 to-secondary-500 rounded-2xl p-8 relative overflow-hidden"
   >
     <div
       class="absolute inset-0 bg-gradient-to-r from-primary-600/30 to-secondary-600/30 backdrop-blur-sm"
@@ -62,46 +61,44 @@
       class="relative z-10 text-center md:text-left md:flex items-center justify-between"
     >
       <div class="text-xl md:text-3xl font-bold text-white text-center">
-        Impulsamos la transformación digital en salud con software inteligente y
-        escalable.
+        {t.hero.banner}
       </div>
     </div>
   </div>
 </section>
 
 <script is:inline>
-  const text = "Transformando el sector de la salud";
-
-  async function typeText(target) {
-    for (let i = 0; i < text.length; i++) {
-      target.textContent += text.charAt(i);
-      await new Promise((r) => setTimeout(r, 50));
-    }
-  }
-
-  async function deleteText(target) {
-    for (let i = text.length; i >= 0; i--) {
-      target.textContent = text.substring(0, i);
-      await new Promise((r) => setTimeout(r, 30));
-    }
-  }
-
-  async function startTypewriterLoop() {
-    const target = document.getElementById("typewriter-text");
-    if (!target) return;
-
-    while (true) {
-      target.textContent = "";
-      await typeText(target);
-      await new Promise((r) => setTimeout(r, 8000)); // espera después de escribir
-      await deleteText(target);
-      await new Promise((r) => setTimeout(r, 500)); // pausa antes de repetir
-    }
-  }
-
   const init = () => {
     const target = document.getElementById("typewriter-text");
     if (!target || target.dataset.animated === "true") return;
+
+    const text = target.dataset.typedText;
+    if (!text) return;
+
+    async function typeText() {
+      for (let i = 0; i < text.length; i++) {
+        target.textContent += text.charAt(i);
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    }
+
+    async function deleteText() {
+      for (let i = text.length; i >= 0; i--) {
+        target.textContent = text.substring(0, i);
+        await new Promise((r) => setTimeout(r, 30));
+      }
+    }
+
+    async function startTypewriterLoop() {
+      while (true) {
+        target.textContent = "";
+        await typeText();
+        await new Promise((r) => setTimeout(r, 8000));
+        await deleteText();
+        await new Promise((r) => setTimeout(r, 500));
+      }
+    }
+
     target.dataset.animated = "true";
     startTypewriterLoop();
   };
@@ -109,7 +106,5 @@
   if (document.readyState === "complete") init();
   else window.addEventListener("DOMContentLoaded", init);
 
-  document.addEventListener("astro:after-swap", () => {
-    init();
-  });
+  document.addEventListener("astro:after-swap", init);
 </script>

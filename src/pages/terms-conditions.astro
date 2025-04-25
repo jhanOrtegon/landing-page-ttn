@@ -3,13 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+import { getTranslation } from "../i18n";
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <Layout
   title="Términos y Condiciones - TTN COMPANY"
   description="Por favor, lea estos términos y condiciones detenidamente antes de utilizar nuestro servicio."
 >
-  <Header />
+  <Header t={t} />
   <main>
     <HeroSection
       highlightText="Términos"
@@ -17,7 +21,7 @@ import HeroSection from "../components/HeroSection.astro";
       description="Por favor, lea estos términos y condiciones detenidamente antes de utilizar nuestro servicio."
     />
 
-    <section class="py-12 bg-white dark:bg-gray-800">
+    <section class="section bg-white dark:bg-gray-800">
       <div class="container-custom">
         <div class="prose prose-lg dark:prose-invert mx-auto text-gray-600">
           <h2 class="text-accent-500 mb-2 text-3xl">1. Introducción</h2>
@@ -132,5 +136,5 @@ import HeroSection from "../components/HeroSection.astro";
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer t={t} />
 </Layout>

@@ -2,10 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { getTranslation } from "../i18n";
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <Layout title="Page Not Found - Sassify">
-  <Header />
+  <Header t={t} />
   <main>
     <section class="py-20 md:py-32">
       <div class="container-custom text-center">
@@ -32,5 +36,5 @@ import Footer from "../components/Footer.astro";
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer t={t} />
 </Layout>

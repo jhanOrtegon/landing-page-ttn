@@ -1,5 +1,8 @@
+import { API_URL } from "../lib/constant";
+
 export type TProducto = {
   id: number;
+  lang: "ES" | "EN";
   nombre: string;
   slug: string;
   titulo: string;
@@ -32,7 +35,6 @@ export interface ProductoDetalle {
   cuarto_bloque: BloqueConTabs;
   quinto_bloque: BloqueConTabs;
   preguntas: Preguntas;
-  apoyo: Apoyo;
 }
 
 export interface Banner {
@@ -113,9 +115,11 @@ export interface TProductoConSlug extends TProducto {
   slug: string;
 }
 
-export const fetchProducts = async (): Promise<TProductoConSlug[]> => {
+export const fetchProducts = async (
+  lang: "ES" | "EN" = "ES"
+): Promise<TProductoConSlug[]> => {
   try {
-    const response = await fetch("http://localhost:3000/api/productos");
+    const response = await fetch(`${API_URL}/productos?lang=${lang}`);
 
     if (!response.ok) {
       throw new Error(`Error HTTP ${response.status}: ${response.statusText}`);
@@ -127,10 +131,12 @@ export const fetchProducts = async (): Promise<TProductoConSlug[]> => {
       throw new Error("La respuesta no contiene un array válido en 'data'");
     }
 
-    return result.data.map((product) => ({
-      ...product,
-      slug: product.nombre.toLowerCase().replace(/\s+/g, "-"),
-    }));
+    return result.data
+      .filter((item) => item.lang === lang)
+      .map((product) => ({
+        ...product,
+        slug: product.nombre.toLowerCase().replace(/\s+/g, "-"),
+      }));
   } catch (error) {
     console.error("❌ Error en fetchProducts:", error);
     return [];
@@ -139,7 +145,7 @@ export const fetchProducts = async (): Promise<TProductoConSlug[]> => {
 
 export const fetchProductDetails = async (): Promise<ProductoDetalle[]> => {
   try {
-    const response = await fetch(`http://localhost:3000/api/productos-detalle`);
+    const response = await fetch(`${API_URL}/productos-detalle`);
 
     if (!response.ok) {
       throw new Error(`Error al consultar productos: ${response.status}`);

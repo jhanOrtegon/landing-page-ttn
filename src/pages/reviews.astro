@@ -3,10 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+import { getTranslation } from "../i18n";
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <Layout title="Customer Reviews - Sassify">
-  <Header />
+  <Header t={t} />
   <main>
     <HeroSection
       title="Customer Reviews"
@@ -14,7 +18,7 @@ import HeroSection from "../components/HeroSection.astro";
       description="See what our customers are saying about their experience with Sassify."
     />
 
-    <section class="py-16 bg-white dark:bg-gray-800">
+    <section class="section bg-white dark:bg-gray-800">
       <div class="container-custom">
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Review Card 1 -->
@@ -113,7 +117,7 @@ import HeroSection from "../components/HeroSection.astro";
                   David Chen
                 </h3>
                 <p class="text-sm text-accent-500 dark:text-gray-400">
-                  CTO, TechStart
+                  CEO, TechStart
                 </p>
               </div>
             </div>
@@ -261,5 +265,5 @@ import HeroSection from "../components/HeroSection.astro";
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer t={t} />
 </Layout>

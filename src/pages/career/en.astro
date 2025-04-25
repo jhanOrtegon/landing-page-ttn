@@ -1,0 +1,58 @@
+---
+import OpenPositions from "../../components/OpenPositions.tsx";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import HeroSection from "../../components/HeroSection.astro";
+import ToastProvider from "../../components/ToastProvider";
+import { fetchVacantes } from "../../../seed/career";
+import { getTranslation } from "../../i18n";
+
+const pathname = Astro.url.pathname;
+const lang = pathname.includes("/en") ? "EN" : "ES";
+const vacantes = await fetchVacantes(lang);
+
+const translated = {
+  ...getTranslation(pathname),
+  career: {
+    ...getTranslation(pathname).career,
+    openPositions: {
+      ...getTranslation(pathname).career.openPositions,
+      data: vacantes,
+    },
+  },
+};
+---
+
+<Layout
+  title={translated.career.layout.title}
+  description={translated.career.layout.description}
+>
+  <Header t={translated} />
+  <main>
+    <HeroSection
+      img={translated.career.heroSection.img}
+      title={translated.career.heroSection.title}
+      description={translated.career.heroSection.description}
+    />
+
+    <section class="section bg-white dark:bg-gray-800">
+      <div class="container-custom">
+        <!-- otras secciones omitidas -->
+
+        <h2 class="text-3xl font-bold text-accent-500 dark:text-white mb-8">
+          {translated.career.openPositions.title}
+        </h2>
+
+        <OpenPositions
+          client:load
+          t={translated.career.openPositions.labels}
+          data={translated.career.openPositions.data}
+          apply={translated.career.openPositions.apply}
+        />
+        <ToastProvider client:only="react" />
+      </div>
+    </section>
+  </main>
+  <Footer t={translated} />
+</Layout>

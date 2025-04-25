@@ -1,10 +1,8 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { ADMIN_EMAIL, API_URL_SEND_EMAIL } from "../../lib/constant";
 
-const apiUrl = import.meta.env.PUBLIC_API_URL_SEND_EMAIL;
-const admin_email = import.meta.env.PUBLIC_CONTACT_EMAIL;
-
-export default function ContactSection() {
+export default function ContactSection({ t }: any) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -17,31 +15,19 @@ export default function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!name.trim()) {
-      toast.error("Por favor ingresa tu nombre.");
-      return;
-    }
-    if (!email.trim()) {
-      toast.error("Por favor ingresa tu correo.");
-      return;
-    }
-    if (!validateEmail(email)) {
-      toast.error("Correo electrónico no válido.");
-      return;
-    }
-    if (!message.trim()) {
-      toast.error("Por favor escribe tu mensaje.");
-      return;
-    }
+    if (!name.trim()) return toast.error(t.errors.name);
+    if (!email.trim()) return toast.error(t.errors.email);
+    if (!validateEmail(email)) return toast.error(t.errors.invalidEmail);
+    if (!message.trim()) return toast.error(t.errors.message);
 
     try {
       setLoading(true);
-      const res = await fetch(apiUrl, {
+      const res = await fetch(API_URL_SEND_EMAIL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           data: {
-            email: [admin_email],
+            email: [ADMIN_EMAIL],
             subject: `Consulta de cliente - ${name}`,
             title: "Un cliente desea comunicarse con la empresa",
             body: `Hola equipo de TTN Company,\n\nUn cliente ha enviado un mensaje a través del formulario de contacto del sitio web.\n\nNombre: ${name}\nCorreo electrónico: ${email}\n\nMensaje del cliente:\n${message}`,
@@ -53,13 +39,13 @@ export default function ContactSection() {
 
       if (!res.ok) throw new Error();
 
-      toast.success("¡Mensaje enviado con éxito!");
+      toast.success(t.errors.success);
       setSubmitted(true);
       setName("");
       setEmail("");
       setMessage("");
     } catch {
-      toast.error("Hubo un error al enviar el mensaje.");
+      toast.error(t.errors.failure);
     } finally {
       setLoading(false);
     }
@@ -71,95 +57,43 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-12">
           <div className="slide-up">
             <h2 className="mb-6 text-accent-500 dark:text-white">
-              Nos encantaría saber más sobre ti
+              {t.sectionTitle}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 mb-8">
-              ¿Tienes preguntas sobre nuestra plataforma o necesitas ayuda para
-              empezar? Nuestro equipo está aquí para ayudarte en cada paso del
-              proceso.
+              {t.sectionDescription}
             </p>
             {/* Información de contacto omitida por brevedad */}
             <div className="space-y-6">
+              {/* Email */}
               <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <svg
-                    className="w-6 h-6 text-secondary-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                </div>
+                <div className="flex-shrink-0 mt-1">📧</div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-accent-500 dark:text-white">
-                    Envíenos un correo electrónico
+                    {t.emailLabel}
                   </h3>
                   <p className="text-accent-500 dark:text-gray-300">
-                    administracion@ttncompany.com
+                    gerencia@ttncompany.com
                   </p>
                 </div>
               </div>
-
+              {/* Teléfono */}
               <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <svg
-                    className="w-6 h-6 text-secondary-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-                    ></path>
-                  </svg>
-                </div>
+                <div className="flex-shrink-0 mt-1">📞</div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-accent-500 dark:text-white">
-                    Llámanos
+                    {t.phoneLabel}
                   </h3>
                   <p className="text-accent-500 dark:text-gray-300">
                     +57 304 3783126
                   </p>
                 </div>
               </div>
-
+              {/* Dirección */}
               <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <svg
-                    className="w-6 h-6 text-secondary-500"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    ></path>
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    ></path>
-                  </svg>
-                </div>
+                <div className="flex-shrink-0 mt-1">📍</div>
                 <div className="ml-4">
                   <h3 className="text-lg font-semibold text-accent-500 dark:text-white">
-                    Visítanos
+                    {t.visitLabel}
                   </h3>
                   <p className="text-accent-500 dark:text-gray-300">
                     Cra 51B #87-50, piso 3 local 337 VIVA Barranquilla
@@ -167,11 +101,11 @@ export default function ContactSection() {
                 </div>
               </div>
             </div>
-
             <div className="mt-8">
               <h3 className="text-lg font-semibold text-accent-500 dark:text-white mb-4">
-                Síguenos
+                {t.followLabel}
               </h3>
+              {/* redes sociales */}
               <div className="flex space-x-4 items-center">
                 <a
                   href="https://www.linkedin.com/company/ttn-company/"
@@ -213,81 +147,55 @@ export default function ContactSection() {
           <div className="slide-up" style={{ animationDelay: "150ms" }}>
             <div className="card p-6 border border-gray-200 dark:border-gray-700">
               <h3 className="text-xl font-semibold mb-6 text-accent-500 dark:text-white">
-                Envíanos un mensaje
+                {t.sendMessage}
               </h3>
               {submitted ? (
                 <div className="text-center p-6 bg-primary-50 dark:bg-primary-900/30 rounded-lg">
-                  <svg
-                    className="w-12 h-12 text-primary-500 mx-auto mb-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
                   <h3 className="text-xl font-semibold text-accent-500 dark:text-white mb-2">
-                    ¡Mensaje enviado!
+                    {t.sentTitle}
                   </h3>
                   <p className="text-accent-500 dark:text-gray-300">
-                    Gracias por contactarnos. Te responderemos lo antes posible.
+                    {t.sentMessage}
                   </p>
                 </div>
               ) : (
                 <form className="space-y-6" onSubmit={handleSubmit} noValidate>
                   <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Nombre
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      {t.placeholders.name}
                     </label>
                     <input
                       type="text"
-                      id="name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-accent-500 bg-white dark:bg-gray-800 text-accent-500 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-                      placeholder="Escribir..."
+                      className="w-full px-4 py-2 rounded-lg border dark:border-accent-500 bg-white dark:bg-gray-800"
+                      placeholder={t.placeholders.name}
                     />
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Correo electrónico
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      {t.placeholders.email}
                     </label>
                     <input
                       type="email"
-                      id="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-accent-500 bg-white dark:bg-gray-800 text-accent-500 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-                      placeholder="Escribir..."
+                      className="w-full px-4 py-2 rounded-lg border dark:border-accent-500 bg-white dark:bg-gray-800"
+                      placeholder={t.placeholders.email}
                     />
                   </div>
 
                   <div>
-                    <label
-                      htmlFor="message"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
-                    >
-                      Mensaje
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                      {t.placeholders.message}
                     </label>
                     <textarea
-                      id="message"
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       rows={5}
-                      className="w-full px-4 py-2 rounded-lg border border-gray-300 dark:border-accent-500 bg-white dark:bg-gray-800 text-accent-500 dark:text-white focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400"
-                      placeholder="Escribir..."
+                      className="w-full px-4 py-2 rounded-lg border dark:border-accent-500 bg-white dark:bg-gray-800"
+                      placeholder={t.placeholders.message}
                     />
                   </div>
 
@@ -296,7 +204,7 @@ export default function ContactSection() {
                     className="w-full btn-primary"
                     disabled={loading}
                   >
-                    {loading ? "Enviando..." : "Enviar mensaje"}
+                    {loading ? "..." : t.submit}
                   </button>
                 </form>
               )}

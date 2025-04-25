@@ -3,13 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import HeroSection from "../components/HeroSection.astro";
+import { getTranslation } from "../i18n";
+
+const pathname = Astro.url.pathname;
+const t = getTranslation(pathname);
 ---
 
 <Layout
   title="Política de Privacidad - TTN COMPANY"
   description="Política de Privacidad para el servicio de TTN COMPANY"
 >
-  <Header />
+  <Header t={t} />
   <main>
     <HeroSection
       highlightText="Política"
@@ -17,7 +21,7 @@ import HeroSection from "../components/HeroSection.astro";
       description={`Última actualización: ${new Date().toLocaleDateString("es-ES")}`}
     />
 
-    <section class="py-16">
+    <section class="section">
       <div class="container-custom">
         <div
           class="mx-auto prose dark:prose-invert prose-headings:font-display prose-headings:font-semibold prose-a:text-primary-600 dark:prose-a:text-primary-400 prose-img:rounded-lg text-gray-600"
@@ -162,5 +166,5 @@ import HeroSection from "../components/HeroSection.astro";
       </div>
     </section>
   </main>
-  <Footer />
+  <Footer t={t} />
 </Layout>

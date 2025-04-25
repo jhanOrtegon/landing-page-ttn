@@ -1,32 +1,5 @@
 ---
-import { seed } from "../../seed/seed";
-
-const testimonials = [
-  {
-    content:
-      "Esta plataforma ha transformado por completo la forma en que gestionamos nuestros proyectos. Su interfaz intuitiva y potentes funciones aumentaron nuestra productividad en más de un 40%.",
-    author: "Sarah Johnson",
-    position: "Gerente de Producto",
-    company: "TechCorp",
-    avatar: "https://randomuser.me/api/portraits/women/32.jpg",
-  },
-  {
-    content:
-      "He probado muchas soluciones SaaS, pero esta destaca por su facilidad de uso y su conjunto de funciones tan completo. Además, el soporte al cliente es excepcional.",
-    author: "Michael Chen",
-    position: "CTO",
-    company: "Innovate Inc.",
-    avatar: "https://randomuser.me/api/portraits/men/46.jpg",
-  },
-  {
-    content:
-      "Solo las capacidades de análisis ya valen la inversión. Hemos obtenido información valiosa que nos ha permitido optimizar operaciones y reducir costos.",
-    author: "Emily Rodriguez",
-    position: "Directora de Operaciones",
-    company: "Global Solutions",
-    avatar: "https://randomuser.me/api/portraits/women/65.jpg",
-  },
-];
+const { t } = Astro.props;
 ---
 
 <section id="testimonials" class="section">
@@ -35,21 +8,21 @@ const testimonials = [
       <span
         class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-900 text-primary-600 dark:text-primary-300 font-medium text-sm mb-4"
       >
-        {seed.home.testimonials.badge}
+        {t.testimonials.badge}
       </span>
       <h2 class="mb-6 text-accent-500 dark:text-white">
-        {seed.home.testimonials.title}
+        {t.testimonials.title}
       </h2>
       <p class="text-gray-600 dark:text-gray-300">
-        {seed.home.testimonials.description}
+        {t.testimonials.description}
       </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-8">
       {
-        seed.home.testimonials.data.map((testimonial, index) => (
+        t.testimonials.data.map((testimonial: any, index: number) => (
           <div
-            class="card p-6 border border-gray-200 dark:border-gray-700 slide-up"
+            class="card p-6 border border-gray-200 dark:border-gray-700 slide-up flex flex-col "
             style={`animation-delay: ${index * 150}ms`}
           >
             <div class="mb-6">
@@ -69,11 +42,11 @@ const testimonials = [
               "{testimonial.content}"
             </blockquote>
 
-            <div class="flex items-center">
+            <div class="grid gap-x-4 items-center mt-auto grid-cols-[55px_1fr]">
               <img
                 src={testimonial.avatar}
                 alt={testimonial.author}
-                class="w-12 h-12 rounded-full mr-4 object-cover"
+                class="w-12 h-12 rounded-full object-cover object-top"
                 loading="lazy"
               />
               <div>
@@ -97,23 +70,23 @@ const testimonials = [
         class="absolute inset-0 bg-gradient-to-r from-primary-600/30 to-secondary-600/30 backdrop-blur-sm"
       >
       </div>
+
       <div
         class="relative z-10 text-center md:text-left md:flex items-center justify-between"
       >
         <div class="mb-6 md:mb-0 md:mr-8">
           <h3 class="text-2xl md:text-3xl font-bold text-white mb-4">
-            ¿Listo para transformar tu negocio?
+            {t.testimonials.cta.title}
           </h3>
           <p class="text-white/80 max-w-2xl">
-            Únase a miles de clientes satisfechos que han mejorado su flujo de
-            trabajo con nuestra plataforma.
+            {t.testimonials.cta.description}
           </p>
         </div>
         <a
-          href="#signup"
+          href="/contact"
           class="inline-flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 bg-white text-primary-600 hover:bg-gray-100 focus:ring-white"
         >
-          Empieza hoy
+          {t.testimonials.cta.button}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="h-5 w-5 ml-2"
