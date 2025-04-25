@@ -656,7 +656,7 @@ export const translations = {
             "All companies go through a launch phase, a growth phase, and a maturity phase. When the latter arrives, two things can happen: a natural decline or a process of renewal. At TTN, we always bet on renewal, driving innovation to continue growing and overcoming challenges. The key lies in adapting, reinventing, and continuing to evolve. Let's keep moving forward together toward a future full of opportunities.",
           author: "Ing. Jorge Martínez Ramírez",
           position: "CEO",
-          company: "Caribbean Ophthalmological Foundation and TTN Company",
+          company: "Foundation Oftalmológica del caribe y TTN Company",
           avatar:
             "https://res.cloudinary.com/dher7tltc/image/upload/v1745330036/jorge_martinez_fh1ozp.jpg",
         },
@@ -931,35 +931,6 @@ export const translations = {
       description:
         "We modernize the processes of clinics and hospitals around the world through software and technology development.",
       columns: [],
-      // columns: [
-      //   {
-      //     title: "Home",
-      //     link: "/en",
-      //     links: [
-      //       { text: "Custom Software", url: "/en#features" },
-      //       { text: "Centralize Processes", url: "/en#process-center" },
-      //       { text: "Customer Stories", url: "/en#testimonials" },
-      //     ],
-      //   },
-      //   {
-      //     title: "Product",
-      //     links: [
-      //       { text: "Services", url: "/en/services" },
-      //       { text: "Pricing", url: "/en/pricing" },
-      //       { text: "FAQ", url: "/en/faqs" },
-      //       { text: "Changelog", url: "/en/changelog" },
-      //       { text: "Integrations", url: "/en/integrations" },
-      //     ],
-      //   },
-      //   {
-      //     title: "Resources",
-      //     links: [
-      //       { text: "Blog", url: "/en/blog" },
-      //       { text: "Case Studies", url: "/en/case-study" },
-      //       { text: "404 Page", url: "/en/404" },
-      //     ],
-      //   },
-      // ],
       rights: "All rights reserved.",
       legal: {
         privacy: "Privacy Policy",
