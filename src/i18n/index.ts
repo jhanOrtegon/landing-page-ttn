@@ -155,8 +155,17 @@ export const translations = {
       data: [
         {
           content:
-            "En Republica Dominicana la clínica de la familia Batlle, @centrolaserrd, estamos colaborando con @ttncompany_col y la familia Escaf para ser los primeros partners internacionales en instalar este software que integra todas las funciones clínicas y administrativas para una clínica oftalmológica, para así mejorar la eficiencia de nuestros procesos y con eso mejorar la satisfacción de nuestros pacientes. Hemos completado la primera etapa del ciclo asistencial y buzón de sugerencias digital y ya empezamos a optimizar la atención a los pacientes, con resultados positivos inmediatos.",
-          author: "Juan Francisco Battle",
+            "Estamos sumamente agradecidos por su apoyo en la transformación digital de los procesos en @centrolaserrd. Esto significa para nosotros el pasar de una nueva era de eficiencia en el trabajo y mejor comunicación entre los miembros del equipo. Para los administradores, contabilidad y medidas de rendimiento en tiempo real, el cual nos permite analizar con más facilidad el desempeño del equipo y planificar nuestras inversiones futuras para el crecimiento de la empresa.",
+          author: "Juan Franciso Batlle Logroño",
+          position: "CEO",
+          company: "Centro Láser en Santo Domingo",
+          avatar:
+            "https://centrolaser.com.do/wp-content/uploads/2017/08/dr-juan-batlle-logro%C3%B1o-centro-laser.jpg",
+        },
+        {
+          content:
+            "En Republica Dominicana la clínica de la familia Batlle, @centrolaserrd, estamos colaborando con @ttncompany_col y la familia Escaf para ser los primeros partners internaciones en instalar este software que integra todas las funciones clínicas y administrativas para una clínica oftalmológica, para así mejorar la eficiencia de nuestros procesos y con eso mejorar la satisfacción de nuestros pacientes. Hemos completado la primera etapa del ciclo asistencial y buzón de sugerencias digital y ya empezamos a optimizar la atención a los pacientes, con resultados positivos inmediatos.",
+          author: "DR. JUAN F. BATLLE PICHARDO",
           position: "CEO",
           company: "Centro Láser en Santo Domingo",
           avatar:
@@ -164,21 +173,12 @@ export const translations = {
         },
         {
           content:
-            "Estamos sumamente agradecidos por su apoyo en la transformación digital de los procesos en @centrolaserrd Esto significa para nosotros el pasar a una nueva era de eficiencia en el trabajo y mejor comunicación entre los miembros del equipo. Para los administradores, contabilidad y medidas de rendimiento en tiempo real, el cual nos permite analizar con más facilidad el desempeño del equipo y planificar nuestras inversiones futuras para el crecimiento de la empresa.",
-          author: "Juan Francisco Battle",
+            "Todas las empresas atraviesan una fase de lanzamiento, una fase de crecimiento y una fase de maduración. Cuando llega esta última, pueden suceder dos cosas: un proceso natural de declive o un proceso de renovación. En TTN, apostamos siempre por la renovación, impulsando la innovación para seguir creciendo y superando desafíos. La clave está en adaptarse, reinventarse y continuar evolucionando. Sigamos avanzando juntos hacia un futuro lleno de oportunidades.",
+          author: "Ing. Jorge Martínez Ramírez",
           position: "CEO",
-          company: "Centro Láser en Santo Domingo",
+          company: "Fundación Oftalmológica del caribe y TTN Company",
           avatar:
-            "http://www.refractivealliance.com/wp-content/uploads/2018/05/Batlle-Pichardo-MD-Juan-.jpg",
-        },
-        {
-          content:
-            "Nos complace anunciar que estamos colaborando con @ttncompany_col y la familia Escaf en un proyecto pionero, convirtiéndonos en los primeros partners internacionales en implementar un innovador software integral diseñado específicamente para clínicas oftalmológicas. Esta herramienta tecnológica reúne en una sola plataforma todas las funciones clínicas y administrativas necesarias para la gestión eficiente de este tipo de instituciones. Nuestro objetivo con esta implementación es claro: optimizar nuestros procesos internos para ofrecer una atención más ágil, personalizada y de calidad, lo que se traduce en una mayor satisfacción para nuestros pacientes.",
-          author: "Luis Escaf Jaraba",
-          position: "CEO",
-          company: "Clínica Oftalmológica del Caribe.",
-          avatar:
-            "https://res.cloudinary.com/dher7tltc/image/upload/v1745330522/Luis_Escaf_mw4rbd.jpg",
+            "https://res.cloudinary.com/dher7tltc/image/upload/v1745330036/jorge_martinez_fh1ozp.jpg",
         },
       ],
       cta: {
@@ -635,8 +635,17 @@ export const translations = {
       data: [
         {
           content:
-            "In the Dominican Republic, the Batlle family clinic, @centrolaserrd, is collaborating with @ttncompany_col and the Escaf family to become the first international partners to install this software, which integrates all clinical and administrative functions for an ophthalmology clinic. This will improve the efficiency of our processes and, consequently, enhance patient satisfaction. We have completed the first stage of the care cycle and digital suggestion box and are already beginning to optimize patient care, with immediate positive results.",
-          author: "Juan Francisco Batlle",
+            "We are extremely grateful for your support in the digital transformation of the processes at @centrolaserrd. This marks a new era of work efficiency and better communication among team members. For administrators, accounting, and real-time performance metrics, it allows us to more easily analyze team performance and plan our future investments for company growth.",
+          author: "Juan Francisco Batlle Logroño",
+          position: "CEO",
+          company: "Centro Láser in Santo Domingo",
+          avatar:
+            "https://centrolaser.com.do/wp-content/uploads/2017/08/dr-juan-batlle-logro%C3%B1o-centro-laser.jpg",
+        },
+        {
+          content:
+            "In the Dominican Republic, at the Batlle family clinic, @centrolaserrd, we are collaborating with @ttncompany_col and the Escaf family to be the first international partners to implement this software that integrates all clinical and administrative functions for an ophthalmology clinic, in order to improve the efficiency of our processes and thus enhance patient satisfaction. We have completed the first stage of the care cycle and digital suggestion box and have already begun optimizing patient care with immediate positive results.",
+          author: "DR. JUAN F. BATLLE PICHARDO",
           position: "CEO",
           company: "Centro Láser in Santo Domingo",
           avatar:
@@ -644,23 +653,15 @@ export const translations = {
         },
         {
           content:
-            "We are extremely grateful for your support in the digital transformation of our processes at @centrolaserrd. For us, this marks a new era of work efficiency and better communication among team members. For the administrators, it means real-time accounting and performance metrics, which allow us to more easily analyze team performance and plan our future investments for company growth.",
-          author: "Juan Francisco Batlle",
+            "All companies go through a launch phase, a growth phase, and a maturity phase. When the latter arrives, two things can happen: a natural decline or a process of renewal. At TTN, we always bet on renewal, driving innovation to continue growing and overcoming challenges. The key lies in adapting, reinventing, and continuing to evolve. Let's keep moving forward together toward a future full of opportunities.",
+          author: "Ing. Jorge Martínez Ramírez",
           position: "CEO",
-          company: "Centro Láser in Santo Domingo",
+          company: "Caribbean Ophthalmological Foundation and TTN Company",
           avatar:
-            "http://www.refractivealliance.com/wp-content/uploads/2018/05/Batlle-Pichardo-MD-Juan-.jpg",
-        },
-        {
-          content:
-            "We’re pleased to announce that we are collaborating with @ttncompany_col and the Escaf family on a pioneering project, becoming the first international partners to implement an innovative all-in-one software designed specifically for ophthalmology clinics. This technological tool brings together all the clinical and administrative functions needed to efficiently manage such institutions. Our goal with this implementation is clear: to optimize our internal processes to deliver more agile, personalized, and high-quality care, resulting in greater patient satisfaction.",
-          author: "Luis Escaf Jaraba",
-          position: "CEO",
-          company: "Clínica Oftalmológica del Caribe",
-          avatar:
-            "https://res.cloudinary.com/dher7tltc/image/upload/v1745330522/Luis_Escaf_mw4rbd.jpg",
+            "https://res.cloudinary.com/dher7tltc/image/upload/v1745330036/jorge_martinez_fh1ozp.jpg",
         },
       ],
+
       cta: {
         title: "Ready to transform your business?",
         description:

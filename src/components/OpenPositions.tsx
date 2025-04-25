@@ -49,12 +49,12 @@ export default function OpenPositions({ data, t, apply }: Props) {
                 <h3 className="text-xl font-semibold text-accent-500 dark:text-white mb-2 md:mb-0">
                   {item.titulo}
                 </h3>
-                <div className="inline-block  py-1 text-xs font-medium rounded-full  text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                <div className="inline-block py-1 text-xs font-medium rounded-full  text-gray-800 dark:bg-gray-700 dark:text-gray-300">
                   <strong>$ Salario:</strong> {item?.salario}
                 </div>
               </div>
               <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300">
-                {item?.estado || t.defaultMode}
+                {item?.modalidad || t.defaultMode}
               </span>
             </div>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
