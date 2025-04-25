@@ -42,11 +42,11 @@ const { t } = Astro.props;
               "{testimonial.content}"
             </blockquote>
 
-            <div class="flex items-center mt-auto">
+            <div class="grid gap-x-4 items-center mt-auto grid-cols-[55px_1fr]">
               <img
                 src={testimonial.avatar}
                 alt={testimonial.author}
-                class="w-12 h-12 rounded-full mr-4 object-cover"
+                class="w-12 h-12 rounded-full object-cover object-top"
                 loading="lazy"
               />
               <div>

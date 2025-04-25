@@ -165,7 +165,7 @@ export const translations = {
         {
           content:
             "En Republica Dominicana la clínica de la familia Batlle, @centrolaserrd, estamos colaborando con @ttncompany_col y la familia Escaf para ser los primeros partners internaciones en instalar este software que integra todas las funciones clínicas y administrativas para una clínica oftalmológica, para así mejorar la eficiencia de nuestros procesos y con eso mejorar la satisfacción de nuestros pacientes. Hemos completado la primera etapa del ciclo asistencial y buzón de sugerencias digital y ya empezamos a optimizar la atención a los pacientes, con resultados positivos inmediatos.",
-          author: "DR. JUAN F. BATLLE PICHARDO",
+          author: "Dr. Juan F. Batlle Pichardo",
           position: "CEO",
           company: "Centro Láser en Santo Domingo",
           avatar:
@@ -645,7 +645,7 @@ export const translations = {
         {
           content:
             "In the Dominican Republic, at the Batlle family clinic, @centrolaserrd, we are collaborating with @ttncompany_col and the Escaf family to be the first international partners to implement this software that integrates all clinical and administrative functions for an ophthalmology clinic, in order to improve the efficiency of our processes and thus enhance patient satisfaction. We have completed the first stage of the care cycle and digital suggestion box and have already begun optimizing patient care with immediate positive results.",
-          author: "DR. JUAN F. BATLLE PICHARDO",
+          author: "Dr. Juan F. Batlle Pichardo",
           position: "CEO",
           company: "Centro Láser in Santo Domingo",
           avatar:
